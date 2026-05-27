@@ -179,10 +179,10 @@ export default function ComparisonChart({
   }
 
   const unit = METRIC_UNITS[metric];
-  // Daylight gets one decimal (values cluster within a narrow band); the others
-  // round to integers since their natural unit step is already coarse.
+  // Sunlight and daylight get one decimal (values cluster within a narrow band);
+  // the others round to integers since their natural unit step is already coarse.
   const formatNumber = (v: number): string => {
-    if (metric === 'daylight') {
+    if (metric === 'sunlight' || metric === 'daylight') {
       const fixed = v.toFixed(1);
       return fixed.endsWith('.0') ? fixed.slice(0, -2) : fixed;
     }

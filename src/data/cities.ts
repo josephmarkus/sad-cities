@@ -1,6 +1,16 @@
 /**
  * City climate data
  *
+ * SUNLIGHT (hours/day per month):
+ *   Mean daily sunshine hours per month from WMO Climate Normals 1991–2020
+ *   (or nearest available period), sourced from Wikipedia climate infoboxes
+ *   which cite national meteorological services (Met Office, NOAA, DWD, KNMI,
+ *   SMHI, Météo-France, AEMET, FMI, MET Norway, DMI, IMGW, CHMI, ECCC, etc.).
+ *   Computed as total monthly sunshine hours ÷ days in month.
+ *   Notable exceptions: Barcelona (Can Bruixa 1987–2010), Seattle (NOAA
+ *   1961–1990), Kraków (Airport 1971–2000), Waterloo (estimated from nearby
+ *   Hamilton/Toronto stations, weather-and-climate.com 1990–2020).
+ *
  * DAYLIGHT (hours/day per month):
  *   Astronomical day-length derived from each city's latitude using the
  *   NOAA Solar Calculator model (gml.noaa.gov/grad/solcalc).
@@ -34,6 +44,8 @@ export interface City {
   name: string;
   country: string;
   region: Region;
+  /** Average hours of sunshine per day for each month (Jan–Dec) */
+  sunlight: Twelve;
   /** Average hours of daylight per day for each month (Jan–Dec) */
   daylight: Twelve;
   /** Total rainfall in mm for each month (Jan–Dec) */
@@ -51,6 +63,8 @@ export const CITIES: City[] = [
     country: 'UK',
     region: 'western-europe',
     // lat 51.5°N
+    // source: Wikipedia / Met Office (Kew, 1991–2020)
+    sunlight: [1.9, 2.9, 4.1, 6.0, 6.9, 7.0, 7.2, 6.7, 5.1, 3.8, 2.3, 1.7],
     daylight: [8.5, 10.0, 11.9, 14.0, 15.8, 16.8, 16.3, 14.7, 12.6, 10.4, 8.7, 7.9],
     // source: Met Office / climate-data.org/europe/great-britain/england/london-461/
     rainfall: [55, 40, 42, 44, 49, 45, 44, 49, 49, 68, 59, 55],
@@ -62,6 +76,8 @@ export const CITIES: City[] = [
     country: 'Germany',
     region: 'western-europe',
     // lat 52.5°N
+    // source: Wikipedia / DWD (Brandenburg, 1991–2020)
+    sunlight: [1.7, 2.8, 4.1, 6.5, 7.5, 7.8, 7.5, 7.2, 5.6, 3.7, 1.9, 1.5],
     daylight: [8.3, 9.9, 11.9, 14.1, 16.0, 17.1, 16.6, 14.9, 12.7, 10.5, 8.6, 7.8],
     // source: Deutscher Wetterdienst / climate-data.org/europe/germany/berlin/berlin-5765/
     rainfall: [42, 33, 40, 37, 54, 68, 55, 58, 45, 37, 44, 55],
@@ -73,6 +89,8 @@ export const CITIES: City[] = [
     country: 'Netherlands',
     region: 'western-europe',
     // lat 52.4°N
+    // source: Wikipedia / KNMI
+    sunlight: [2.2, 3.4, 4.7, 6.6, 7.4, 7.2, 7.3, 6.6, 5.1, 3.8, 2.2, 1.9],
     daylight: [8.3, 9.9, 11.9, 14.1, 15.9, 17.0, 16.5, 14.9, 12.7, 10.5, 8.6, 7.8],
     // source: KNMI / climate-data.org/europe/the-netherlands/amsterdam-9/
     rainfall: [68, 47, 61, 44, 55, 65, 71, 66, 72, 80, 80, 77],
@@ -84,6 +102,8 @@ export const CITIES: City[] = [
     country: 'France',
     region: 'western-europe',
     // lat 48.9°N
+    // source: Wikipedia / Météo-France (Parc Montsouris)
+    sunlight: [1.9, 3.0, 4.4, 5.9, 6.5, 6.8, 7.2, 6.9, 5.8, 3.8, 2.3, 1.8],
     daylight: [8.9, 10.3, 12.1, 14.1, 15.8, 16.7, 16.2, 14.7, 12.7, 10.7, 9.0, 8.3],
     // source: Météo-France / climate-data.org/europe/france/ile-de-france/paris-30/
     rainfall: [51, 41, 48, 51, 63, 53, 55, 53, 55, 55, 52, 50],
@@ -95,6 +115,8 @@ export const CITIES: City[] = [
     country: 'Sweden',
     region: 'western-europe',
     // lat 59.3°N
+    // source: Wikipedia / SMHI
+    sunlight: [1.4, 2.7, 4.9, 7.2, 8.9, 9.2, 9.0, 7.6, 5.7, 3.1, 1.5, 1.1],
     daylight: [7.0, 9.1, 11.7, 14.5, 17.1, 18.6, 18.0, 15.8, 13.1, 10.3, 7.8, 6.5],
     // source: SMHI / climate-data.org/europe/sweden/stockholm-3739/
     rainfall: [39, 27, 26, 30, 30, 45, 72, 66, 55, 50, 53, 46],
@@ -106,6 +128,8 @@ export const CITIES: City[] = [
     country: 'Ireland',
     region: 'western-europe',
     // lat 53.3°N
+    // source: Wikipedia / Met Éireann (Dublin Airport, 1991–2020)
+    sunlight: [1.9, 2.9, 3.9, 5.5, 6.4, 6.0, 5.1, 5.0, 4.3, 3.4, 2.5, 1.8],
     daylight: [8.1, 9.7, 11.8, 13.9, 15.8, 16.8, 16.4, 14.8, 12.6, 10.4, 8.4, 7.6],
     // source: Met Éireann / climate-data.org/europe/ireland/dublin-78/
     rainfall: [67, 51, 55, 48, 56, 57, 50, 72, 65, 70, 67, 74],
@@ -117,6 +141,8 @@ export const CITIES: City[] = [
     country: 'Switzerland',
     region: 'western-europe',
     // lat 47.4°N
+    // source: Wikipedia / MeteoSwiss
+    sunlight: [1.9, 3.2, 4.6, 5.9, 6.2, 6.9, 7.4, 7.0, 5.5, 3.5, 2.0, 1.5],
     daylight: [9.0, 10.5, 12.3, 14.1, 15.7, 16.6, 16.1, 14.7, 12.7, 10.8, 9.2, 8.5],
     // source: MeteoSwiss / climate-data.org/europe/switzerland/zurich/zurich-5759/
     rainfall: [74, 65, 76, 76, 101, 129, 136, 124, 102, 79, 76, 72],
@@ -128,6 +154,8 @@ export const CITIES: City[] = [
     country: 'Germany',
     region: 'western-europe',
     // lat 48.1°N
+    // source: Wikipedia / DWD
+    sunlight: [2.4, 3.4, 4.7, 6.2, 6.9, 7.5, 7.8, 7.5, 5.7, 4.0, 2.5, 2.1],
     daylight: [8.9, 10.4, 12.2, 14.1, 15.8, 16.7, 16.2, 14.7, 12.7, 10.7, 9.0, 8.3],
     // source: DWD / climate-data.org/europe/germany/bavaria/munich-5765/
     rainfall: [59, 49, 57, 62, 85, 131, 126, 114, 84, 67, 64, 62],
@@ -139,6 +167,8 @@ export const CITIES: City[] = [
     country: 'Spain',
     region: 'western-europe',
     // lat 41.4°N
+    // source: Wikipedia / AEMET (Can Bruixa, 1987–2010)
+    sunlight: [4.8, 5.8, 6.5, 7.3, 7.9, 8.7, 10.0, 9.1, 7.3, 5.8, 4.9, 4.5],
     daylight: [9.8, 11.0, 12.5, 14.2, 15.6, 16.4, 16.0, 14.7, 13.0, 11.3, 9.9, 9.3],
     // source: AEMET / climate-data.org/europe/spain/catalonia/barcelona-178/
     rainfall: [46, 42, 49, 50, 57, 37, 22, 53, 75, 96, 59, 50],
@@ -150,6 +180,8 @@ export const CITIES: City[] = [
     country: 'Finland',
     region: 'western-europe',
     // lat 60.2°N
+    // source: Wikipedia / FMI (Kumpula, 1991–2020)
+    sunlight: [1.1, 2.5, 4.7, 6.8, 9.5, 9.3, 9.9, 8.0, 5.3, 2.9, 1.1, 0.7],
     daylight: [6.6, 8.8, 11.5, 14.4, 17.0, 18.6, 18.1, 15.9, 13.1, 10.2, 7.6, 6.1],
     // source: FMI / climate-data.org/europe/finland/helsinki-3060/
     rainfall: [49, 35, 33, 35, 38, 51, 68, 75, 58, 65, 67, 57],
@@ -161,6 +193,8 @@ export const CITIES: City[] = [
     country: 'Denmark',
     region: 'western-europe',
     // lat 55.7°N
+    // source: Wikipedia / DMI
+    sunlight: [1.7, 2.4, 3.9, 6.0, 7.4, 7.1, 7.4, 6.4, 4.7, 3.3, 1.8, 1.3],
     daylight: [7.5, 9.3, 11.6, 14.1, 16.2, 17.4, 16.9, 15.2, 12.8, 10.4, 8.1, 7.2],
     // source: DMI / climate-data.org/europe/denmark/copenhagen-6640/
     rainfall: [46, 34, 37, 34, 39, 49, 61, 66, 60, 61, 55, 55],
@@ -172,6 +206,8 @@ export const CITIES: City[] = [
     country: 'Norway',
     region: 'western-europe',
     // lat 59.9°N
+    // source: Wikipedia / MET Norway
+    sunlight: [1.5, 2.8, 4.6, 6.1, 8.1, 8.0, 7.8, 6.7, 5.1, 3.0, 1.7, 1.1],
     daylight: [7.0, 9.1, 11.7, 14.5, 17.0, 18.5, 18.0, 15.8, 13.1, 10.3, 7.8, 6.5],
     // source: MET Norway / climate-data.org/europe/norway/oslo-5763/
     rainfall: [49, 35, 42, 42, 53, 65, 81, 89, 90, 84, 73, 55],
@@ -186,6 +222,8 @@ export const CITIES: City[] = [
     country: 'Poland',
     region: 'eastern-europe',
     // lat 52.2°N
+    // source: Wikipedia / IMGW
+    sunlight: [1.4, 2.4, 4.5, 7.0, 8.8, 9.6, 9.5, 9.0, 6.4, 4.0, 1.7, 1.1],
     daylight: [8.3, 9.9, 11.9, 14.1, 16.0, 17.1, 16.6, 14.9, 12.7, 10.5, 8.6, 7.8],
     // source: IMGW / climate-data.org/europe/poland/warsaw-4994/
     rainfall: [27, 23, 27, 32, 51, 61, 65, 63, 46, 40, 32, 31],
@@ -197,6 +235,8 @@ export const CITIES: City[] = [
     country: 'Estonia',
     region: 'eastern-europe',
     // lat 59.4°N
+    // source: Wikipedia / EMHI
+    sunlight: [1.0, 2.1, 4.8, 7.2, 9.9, 9.8, 10.1, 8.2, 5.4, 2.8, 1.0, 0.7],
     daylight: [7.0, 9.1, 11.7, 14.5, 17.1, 18.5, 18.0, 15.8, 13.1, 10.3, 7.8, 6.5],
     // source: EMHI / climate-data.org/europe/estonia/tallinn-5776/
     rainfall: [44, 33, 30, 32, 38, 52, 75, 81, 64, 67, 61, 57],
@@ -208,6 +248,8 @@ export const CITIES: City[] = [
     country: 'Lithuania',
     region: 'eastern-europe',
     // lat 54.7°N
+    // source: Wikipedia / LHMT
+    sunlight: [1.1, 2.0, 4.3, 6.5, 8.4, 8.8, 8.5, 7.9, 5.6, 3.1, 1.0, 0.8],
     daylight: [7.7, 9.4, 11.7, 14.2, 16.3, 17.5, 17.0, 15.3, 12.9, 10.4, 8.0, 7.1],
     // source: LHMT / climate-data.org/europe/lithuania/vilnius-5757/
     rainfall: [36, 30, 35, 40, 56, 68, 74, 71, 52, 47, 44, 44],
@@ -219,6 +261,8 @@ export const CITIES: City[] = [
     country: 'Ukraine',
     region: 'eastern-europe',
     // lat 50.5°N
+    // source: Wikipedia / UMC
+    sunlight: [1.4, 2.3, 3.6, 5.4, 8.3, 9.1, 9.3, 8.1, 6.3, 4.0, 1.7, 1.0],
     daylight: [8.7, 10.2, 12.1, 14.1, 15.9, 17.0, 16.5, 14.9, 12.7, 10.6, 8.8, 8.1],
     // source: UMC / climate-data.org/europe/ukraine/kyiv-5766/
     rainfall: [36, 36, 36, 43, 55, 76, 80, 64, 49, 38, 43, 42],
@@ -230,6 +274,8 @@ export const CITIES: City[] = [
     country: 'Romania',
     region: 'eastern-europe',
     // lat 44.4°N
+    // source: Wikipedia / ANM
+    sunlight: [2.5, 3.8, 5.1, 6.5, 7.9, 8.6, 9.5, 9.1, 7.0, 4.8, 2.8, 2.1],
     daylight: [9.4, 10.8, 12.4, 14.1, 15.6, 16.4, 16.0, 14.7, 12.9, 11.1, 9.5, 8.9],
     // source: ANM / climate-data.org/europe/romania/bucharest-5767/
     rainfall: [40, 38, 36, 46, 60, 73, 58, 51, 36, 36, 46, 44],
@@ -241,6 +287,8 @@ export const CITIES: City[] = [
     country: 'Czech Republic',
     region: 'eastern-europe',
     // lat 50.1°N
+    // source: Wikipedia / CHMI (Clementinum)
+    sunlight: [1.7, 2.9, 4.2, 6.3, 7.0, 7.3, 7.4, 7.2, 5.6, 3.6, 1.8, 1.5],
     daylight: [8.7, 10.2, 12.1, 14.1, 15.9, 17.0, 16.5, 14.9, 12.7, 10.6, 8.8, 8.1],
     // source: CHMI / climate-data.org/europe/czech-republic/prague-5771/
     rainfall: [22, 21, 27, 34, 59, 67, 67, 67, 40, 32, 30, 24],
@@ -252,6 +300,8 @@ export const CITIES: City[] = [
     country: 'Poland',
     region: 'eastern-europe',
     // lat 50.1°N
+    // source: Wikipedia / IMGW (Kraków Airport, 1971–2000)
+    sunlight: [1.4, 2.3, 3.2, 4.6, 6.5, 6.5, 6.8, 6.5, 4.2, 3.2, 1.6, 1.0],
     daylight: [8.7, 10.2, 12.1, 14.1, 15.9, 17.0, 16.5, 14.9, 12.7, 10.6, 8.8, 8.1],
     // source: IMGW / climate-data.org/europe/poland/krakow-5759/
     rainfall: [30, 28, 33, 45, 72, 90, 90, 80, 53, 40, 40, 35],
@@ -266,6 +316,8 @@ export const CITIES: City[] = [
     country: 'USA',
     region: 'us',
     // lat 37.8°N
+    // source: Wikipedia / NOAA (Downtown SF)
+    sunlight: [6.0, 7.4, 8.7, 10.3, 10.5, 10.4, 10.1, 9.3, 9.0, 8.0, 5.8, 5.2],
     daylight: [10.1, 11.3, 12.7, 14.2, 15.4, 16.1, 15.7, 14.5, 12.9, 11.4, 10.2, 9.7],
     // source: NOAA / climate-data.org/north-america/united-states/california/san-francisco-368/
     rainfall: [119, 97, 79, 38, 18, 3, 0, 1, 6, 25, 76, 112],
@@ -277,6 +329,8 @@ export const CITIES: City[] = [
     country: 'USA',
     region: 'us',
     // lat 40.7°N
+    // source: Wikipedia / NOAA (Central Park)
+    sunlight: [5.2, 5.8, 6.9, 7.5, 8.3, 8.6, 8.7, 8.7, 7.3, 6.8, 5.0, 4.5],
     daylight: [9.8, 11.0, 12.5, 14.2, 15.5, 16.3, 15.9, 14.6, 12.9, 11.2, 9.8, 9.2],
     // source: NOAA / climate-data.org/north-america/united-states/new-york/new-york-542/
     rainfall: [94, 79, 103, 101, 106, 104, 107, 103, 99, 99, 86, 91],
@@ -288,6 +342,8 @@ export const CITIES: City[] = [
     country: 'USA',
     region: 'us',
     // lat 47.6°N
+    // source: Wikipedia / NOAA (1961–1990)
+    sunlight: [2.3, 3.9, 5.8, 6.9, 8.2, 8.9, 10.1, 9.1, 7.4, 4.6, 2.4, 1.7],
     daylight: [9.0, 10.5, 12.3, 14.1, 15.8, 16.7, 16.2, 14.7, 12.7, 10.7, 9.0, 8.3],
     // source: NOAA / climate-data.org/north-america/united-states/washington/seattle-714/
     rainfall: [135, 97, 89, 69, 55, 40, 18, 26, 46, 86, 148, 144],
@@ -299,6 +355,8 @@ export const CITIES: City[] = [
     country: 'USA',
     region: 'us',
     // lat 30.3°N
+    // source: Wikipedia / NOAA (Camp Mabry)
+    sunlight: [5.3, 6.0, 6.6, 6.9, 7.3, 9.5, 10.2, 9.6, 7.8, 7.0, 5.6, 5.0],
     daylight: [10.4, 11.5, 12.8, 14.2, 15.3, 16.0, 15.6, 14.4, 12.8, 11.3, 10.3, 9.8],
     // source: NOAA / climate-data.org/north-america/united-states/texas/austin-750/
     rainfall: [48, 60, 53, 61, 96, 94, 49, 47, 77, 83, 63, 52],
@@ -310,6 +368,8 @@ export const CITIES: City[] = [
     country: 'USA',
     region: 'us',
     // lat 42.4°N
+    // source: Wikipedia / NOAA
+    sunlight: [5.3, 6.0, 6.9, 7.6, 8.6, 9.6, 9.7, 8.9, 7.9, 6.7, 4.8, 4.6],
     daylight: [9.6, 10.8, 12.4, 14.1, 15.5, 16.2, 15.8, 14.5, 12.8, 11.1, 9.7, 9.1],
     // source: NOAA / climate-data.org/north-america/united-states/massachusetts/boston-499/
     rainfall: [97, 86, 105, 99, 94, 99, 84, 91, 91, 101, 114, 107],
@@ -321,6 +381,8 @@ export const CITIES: City[] = [
     country: 'USA',
     region: 'us',
     // lat 34.1°N
+    // source: Wikipedia / NOAA (Downtown LA / Dodger Stadium)
+    sunlight: [7.3, 7.9, 8.6, 10.1, 8.9, 9.2, 11.7, 11.3, 9.3, 8.2, 7.2, 7.1],
     daylight: [10.2, 11.3, 12.7, 14.2, 15.4, 16.1, 15.7, 14.5, 12.9, 11.3, 10.2, 9.7],
     // source: NOAA / climate-data.org/north-america/united-states/california/los-angeles-370/
     rainfall: [84, 92, 62, 25, 7, 3, 0, 1, 5, 18, 37, 58],
@@ -332,6 +394,8 @@ export const CITIES: City[] = [
     country: 'USA',
     region: 'us',
     // lat 41.9°N
+    // source: Wikipedia / NOAA (O'Hare)
+    sunlight: [4.4, 4.9, 6.0, 7.2, 9.1, 10.4, 10.3, 9.1, 7.6, 6.2, 3.8, 3.4],
     daylight: [9.7, 10.9, 12.4, 14.2, 15.6, 16.3, 15.9, 14.6, 12.9, 11.2, 9.7, 9.1],
     // source: NOAA / climate-data.org/north-america/united-states/illinois/chicago-502/
     rainfall: [52, 45, 68, 82, 92, 100, 99, 102, 77, 74, 72, 58],
@@ -343,6 +407,8 @@ export const CITIES: City[] = [
     country: 'USA',
     region: 'us',
     // lat 39.7°N
+    // source: Wikipedia / NOAA
+    sunlight: [6.9, 7.5, 8.2, 9.2, 9.4, 10.5, 10.5, 9.9, 9.1, 8.0, 6.5, 6.3],
     daylight: [9.8, 11.0, 12.5, 14.2, 15.5, 16.3, 15.8, 14.6, 12.9, 11.2, 9.8, 9.3],
     // source: NOAA / climate-data.org/north-america/united-states/colorado/denver-488/
     rainfall: [14, 18, 30, 42, 58, 45, 53, 47, 31, 25, 18, 14],
@@ -354,6 +420,8 @@ export const CITIES: City[] = [
     country: 'USA',
     region: 'us',
     // lat 33.7°N
+    // source: Wikipedia / NOAA (1991–2020)
+    sunlight: [5.3, 6.1, 7.1, 8.7, 9.3, 9.5, 8.8, 8.3, 7.6, 7.7, 6.2, 5.3],
     daylight: [10.3, 11.4, 12.8, 14.2, 15.4, 16.1, 15.7, 14.4, 12.8, 11.3, 10.2, 9.8],
     // source: NOAA / climate-data.org/north-america/united-states/georgia/atlanta-478/
     rainfall: [112, 112, 137, 91, 89, 107, 123, 103, 90, 74, 97, 101],
@@ -365,6 +433,8 @@ export const CITIES: City[] = [
     country: 'USA',
     region: 'us',
     // lat 35.8°N
+    // source: Wikipedia / NOAA
+    sunlight: [5.3, 6.2, 7.4, 8.4, 8.3, 8.9, 8.4, 7.7, 7.3, 7.0, 5.8, 5.1],
     daylight: [10.1, 11.2, 12.7, 14.2, 15.5, 16.2, 15.7, 14.5, 12.8, 11.3, 10.1, 9.6],
     // source: NOAA / climate-data.org/north-america/united-states/north-carolina/raleigh-575/
     rainfall: [92, 83, 101, 74, 86, 102, 105, 102, 107, 80, 77, 79],
@@ -376,6 +446,8 @@ export const CITIES: City[] = [
     country: 'USA',
     region: 'us',
     // lat 25.8°N
+    // source: Wikipedia / NOAA (1991–2020)
+    sunlight: [7.1, 7.7, 8.9, 9.8, 9.7, 9.6, 10.0, 9.3, 8.7, 8.4, 7.4, 7.0],
     daylight: [10.9, 11.8, 12.8, 14.0, 14.9, 15.5, 15.2, 14.2, 12.8, 11.5, 10.7, 10.4],
     // source: NOAA / climate-data.org/north-america/united-states/florida/miami-352/
     rainfall: [51, 58, 62, 75, 152, 234, 168, 208, 213, 187, 71, 45],
@@ -387,6 +459,8 @@ export const CITIES: City[] = [
     country: 'USA',
     region: 'us',
     // lat 38.9°N
+    // source: Wikipedia / NOAA (Reagan National)
+    sunlight: [4.7, 5.4, 6.6, 7.6, 8.4, 9.4, 9.0, 8.5, 7.5, 6.6, 5.0, 4.3],
     daylight: [9.9, 11.1, 12.6, 14.2, 15.5, 16.2, 15.8, 14.5, 12.9, 11.2, 9.8, 9.3],
     // source: NOAA / climate-data.org/north-america/united-states/district-of-columbia/washington-538/
     rainfall: [76, 66, 88, 75, 99, 93, 100, 87, 93, 78, 74, 80],
@@ -401,6 +475,8 @@ export const CITIES: City[] = [
     country: 'Canada',
     region: 'canada',
     // lat 43.7°N
+    // source: Wikipedia / ECCC (Pearson Airport)
+    sunlight: [2.8, 4.0, 5.2, 6.0, 7.3, 8.7, 9.0, 7.9, 6.5, 5.0, 3.0, 2.5],
     daylight: [9.5, 10.8, 12.3, 14.1, 15.5, 16.2, 15.8, 14.5, 12.8, 11.1, 9.6, 9.1],
     // source: Environment and Climate Change Canada / climate-data.org/north-america/canada/ontario/toronto-5762/
     rainfall: [52, 47, 59, 64, 67, 72, 74, 81, 73, 62, 73, 58],
@@ -412,6 +488,8 @@ export const CITIES: City[] = [
     country: 'Canada',
     region: 'canada',
     // lat 49.2°N
+    // source: Wikipedia / ECCC
+    sunlight: [1.9, 3.3, 4.3, 6.2, 7.2, 7.6, 9.4, 8.9, 7.1, 3.9, 2.0, 1.8],
     daylight: [8.9, 10.3, 12.1, 14.1, 15.8, 16.7, 16.2, 14.7, 12.7, 10.7, 9.0, 8.3],
     // source: Environment Canada / climate-data.org/north-america/canada/british-columbia/vancouver-5766/
     rainfall: [154, 113, 101, 70, 61, 45, 32, 36, 54, 113, 180, 184],
@@ -423,6 +501,8 @@ export const CITIES: City[] = [
     country: 'Canada',
     region: 'canada',
     // lat 45.5°N
+    // source: Wikipedia / ECCC
+    sunlight: [3.3, 4.6, 5.3, 5.9, 7.4, 8.0, 8.8, 7.9, 6.1, 4.6, 2.8, 2.7],
     daylight: [9.3, 10.6, 12.2, 14.1, 15.6, 16.3, 15.9, 14.6, 12.8, 11.1, 9.5, 8.9],
     // source: Environment Canada / climate-data.org/north-america/canada/quebec/montreal-5765/
     rainfall: [80, 70, 74, 78, 85, 87, 92, 94, 89, 88, 98, 90],
@@ -434,6 +514,8 @@ export const CITIES: City[] = [
     country: 'Canada',
     region: 'canada',
     // lat 43.5°N (approximately same as Toronto)
+    // source: weather-and-climate.com (Hamilton station, 1990–2020); anchored to July 9.8 h/day, Dec 2.3 h/day, annual ~2,120 h
+    sunlight: [2.8, 4.0, 5.3, 6.2, 7.6, 8.9, 9.8, 8.5, 6.6, 5.1, 3.1, 2.3],
     daylight: [9.5, 10.8, 12.3, 14.1, 15.5, 16.2, 15.8, 14.5, 12.8, 11.1, 9.6, 9.1],
     // source: Environment Canada / climate-data.org/north-america/canada/ontario/waterloo-5798/
     rainfall: [58, 52, 66, 73, 78, 85, 87, 91, 81, 67, 78, 62],
@@ -445,6 +527,8 @@ export const CITIES: City[] = [
     country: 'Canada',
     region: 'canada',
     // lat 45.4°N
+    // source: Wikipedia / ECCC
+    sunlight: [3.9, 4.1, 5.4, 6.3, 6.8, 9.1, 9.7, 7.5, 7.1, 4.8, 3.1, 2.2],
     daylight: [9.3, 10.6, 12.2, 14.1, 15.6, 16.3, 15.9, 14.6, 12.8, 11.1, 9.5, 8.9],
     // source: Environment Canada / climate-data.org/north-america/canada/ontario/ottawa-5762/
     rainfall: [64, 52, 60, 64, 73, 80, 87, 87, 82, 72, 80, 68],
@@ -459,6 +543,8 @@ export const CITIES: City[] = [
     country: 'Mexico',
     region: 'mexico',
     // lat 19.4°N
+    // source: nomadseason.com / SMN (Observatorio, estimated; rainy season Jun–Sep reduces sunshine)
+    sunlight: [6.5, 7.5, 8.1, 9.0, 9.2, 7.7, 7.4, 7.1, 5.7, 6.8, 7.2, 6.1],
     daylight: [11.2, 11.9, 12.7, 13.5, 14.1, 14.4, 14.2, 13.6, 12.7, 11.8, 11.1, 10.9],
     // source: SMN / climate-data.org/north-america/mexico/ciudad-de-mexico/mexico-city-9/
     rainfall: [13, 8, 11, 29, 53, 130, 164, 162, 129, 72, 19, 9],
@@ -470,6 +556,8 @@ export const CITIES: City[] = [
     country: 'Mexico',
     region: 'mexico',
     // lat 20.7°N
+    // source: Wikipedia / SMN
+    sunlight: [6.6, 8.1, 8.5, 8.7, 9.0, 7.1, 6.3, 6.8, 6.2, 7.1, 7.5, 6.1],
     daylight: [11.1, 11.8, 12.6, 13.5, 14.1, 14.4, 14.2, 13.6, 12.7, 11.7, 11.0, 10.8],
     // source: SMN / climate-data.org/north-america/mexico/jalisco/guadalajara-88/
     rainfall: [19, 7, 6, 5, 14, 196, 252, 201, 134, 47, 9, 12],
@@ -481,6 +569,8 @@ export const CITIES: City[] = [
     country: 'Mexico',
     region: 'mexico',
     // lat 25.7°N
+    // source: Wikipedia / SMN
+    sunlight: [5.2, 5.8, 5.8, 6.3, 6.7, 7.4, 7.7, 8.3, 6.1, 5.8, 5.2, 4.5],
     daylight: [10.9, 11.8, 12.8, 14.0, 14.9, 15.5, 15.2, 14.2, 12.8, 11.5, 10.7, 10.4],
     // source: SMN / climate-data.org/north-america/mexico/nuevo-leon/monterrey-97/
     rainfall: [23, 19, 23, 36, 41, 74, 48, 73, 139, 72, 25, 19],

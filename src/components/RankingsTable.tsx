@@ -2,6 +2,7 @@ import { useMemo } from 'react';
 import { CITIES } from '../data/cities';
 import type { Metric } from '../utils/chartHelpers';
 import {
+  yearlySunlight,
   yearlyDaylight,
   yearlyRainfall,
   yearlyMeanTemperature,
@@ -19,9 +20,10 @@ interface Row {
   id: string;
   name: string;
   country: string;
-  daylight: number;   // total hours/year
-  rainfall: number;  // total mm/year
-  temperature: number; // mean °C
+  sunlight: number;     // total hours/year
+  daylight: number;     // total hours/year
+  rainfall: number;     // total mm/year
+  temperature: number;  // mean °C
 }
 
 export default function RankingsTable({ metric, selectedIds }: RankingsTableProps) {
@@ -30,13 +32,15 @@ export default function RankingsTable({ metric, selectedIds }: RankingsTableProp
       id: city.id,
       name: city.name,
       country: city.country,
+      sunlight: yearlySunlight(city),
       daylight: yearlyDaylight(city),
       rainfall: yearlyRainfall(city),
       temperature: yearlyMeanTemperature(city),
     }));
 
-    // Sort: more daylight = better (desc); less rain = better (asc); warmer = better (desc)
-    if (metric === 'daylight') all.sort((a, b) => b.daylight - a.daylight);
+    // Sort: more sunlight/daylight = better (desc); less rain = better (asc); warmer = better (desc)
+    if (metric === 'sunlight') all.sort((a, b) => b.sunlight - a.sunlight);
+    else if (metric === 'daylight') all.sort((a, b) => b.daylight - a.daylight);
     else if (metric === 'rainfall') all.sort((a, b) => a.rainfall - b.rainfall);
     else all.sort((a, b) => b.temperature - a.temperature);
 
@@ -50,6 +54,10 @@ export default function RankingsTable({ metric, selectedIds }: RankingsTableProp
           <tr>
             <th className="rankings-col-rank">#</th>
             <th className="rankings-col-city">City</th>
+            <th className={`rankings-col-num${metric === 'sunlight' ? ' rankings-col-active' : ''}`}>
+              Sunlight
+              <span className="rankings-unit"> hrs/yr</span>
+            </th>
             <th className={`rankings-col-num${metric === 'daylight' ? ' rankings-col-active' : ''}`}>
               Daylight
               <span className="rankings-unit"> hrs/yr</span>
@@ -76,6 +84,9 @@ export default function RankingsTable({ metric, selectedIds }: RankingsTableProp
                     {row.name}
                   </span>
                   <span className="rankings-country">, {row.country}</span>
+                </td>
+                <td className={`rankings-col-num${metric === 'sunlight' ? ' rankings-col-active' : ''}`}>
+                  {new Intl.NumberFormat('en-US').format(Math.round(row.sunlight))}
                 </td>
                 <td className={`rankings-col-num${metric === 'daylight' ? ' rankings-col-active' : ''}`}>
                   {new Intl.NumberFormat('en-US').format(Math.round(row.daylight))}

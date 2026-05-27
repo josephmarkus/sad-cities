@@ -9,6 +9,7 @@ import RankingsTable from './components/RankingsTable';
 const DEFAULT_IDS = ['london', 'toronto'];
 
 const METRIC_OPTIONS: { label: string; value: Metric }[] = [
+  { label: 'Sunlight', value: 'sunlight' },
   { label: 'Daylight', value: 'daylight' },
   { label: 'Rainfall', value: 'rainfall' },
   { label: 'Temperature', value: 'temperature' },
@@ -21,7 +22,7 @@ const VIEW_OPTIONS: { label: string; value: ViewMode }[] = [
 
 function App() {
   const [selectedIds, setSelectedIds] = useState<string[]>(DEFAULT_IDS);
-  const [metric, setMetric] = useState<Metric>('daylight');
+  const [metric, setMetric] = useState<Metric>('sunlight');
   const [viewMode, setViewMode] = useState<ViewMode>('absolute');
 
   const selectedCities = CITIES.filter((c) => selectedIds.includes(c.id));
@@ -72,6 +73,11 @@ function App() {
             climate-data.org
           </a>
           .
+        </p>
+        <p>
+          Sunlight hours: mean daily sunshine hours from WMO Climate Normals
+          (1991–2020 where available), sourced from Wikipedia climate infoboxes
+          citing national meteorological services.
         </p>
         <p>
           Daylight hours: derived from each city's latitude using the{' '}

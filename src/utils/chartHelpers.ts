@@ -1,11 +1,16 @@
 import type { City } from '../data/cities';
 import { MONTHS } from '../data/cities';
 
-export type Metric = 'daylight' | 'rainfall' | 'temperature';
+export type Metric = 'sunlight' | 'daylight' | 'rainfall' | 'temperature';
 export type ViewMode = 'absolute' | 'deviation';
 
 // Days per month for a non-leap reference year (used to convert hrs/day → hrs/year)
 export const DAYS_IN_MONTH = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31] as const;
+
+/** Total hours of sunshine in the year (sum of hrs/day × days in each month). */
+export function yearlySunlight(city: City): number {
+  return city.sunlight.reduce((sum, h, i) => sum + h * DAYS_IN_MONTH[i], 0);
+}
 
 /** Total hours of daylight in the year (sum of hrs/day × days in each month). */
 export function yearlyDaylight(city: City): number {
@@ -27,6 +32,9 @@ export function yearlyMeanTemperature(city: City): number {
  * suitable for display in chart labels or table cells.
  */
 export function formatYearlyTotal(city: City, metric: Metric): string {
+  if (metric === 'sunlight') {
+    return `${new Intl.NumberFormat('en-US').format(Math.round(yearlySunlight(city)))} hrs/yr`;
+  }
   if (metric === 'daylight') {
     return `${new Intl.NumberFormat('en-US').format(Math.round(yearlyDaylight(city)))} hrs/yr`;
   }
@@ -76,18 +84,21 @@ export function transformForRecharts(
 }
 
 export const METRIC_LABELS: Record<Metric, string> = {
+  sunlight: 'Sunlight (hrs / day)',
   daylight: 'Daylight (hrs / day)',
   rainfall: 'Rainfall (mm)',
   temperature: 'Temperature (°C)',
 };
 
 export const METRIC_DEVIATION_LABELS: Record<Metric, string> = {
+  sunlight: 'Sunlight Δ from yearly mean (hrs)',
   daylight: 'Daylight Δ from yearly mean (hrs)',
   rainfall: 'Rainfall Δ from yearly mean (mm)',
   temperature: 'Temperature Δ from yearly mean (°C)',
 };
 
 export const METRIC_UNITS: Record<Metric, string> = {
+  sunlight: 'h',
   daylight: 'h',
   rainfall: 'mm',
   temperature: '°C',
