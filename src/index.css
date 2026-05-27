@@ -1,0 +1,169 @@
+/* ─── Reset & base ─────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: system-ui, 'Segoe UI', Roboto, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #1a1a1a;
+  background: #fafafa;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── Layout ────────────────────────────────────────────────── */
+.app {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 48px 24px 80px;
+}
+
+.app-header {
+  margin-bottom: 40px;
+}
+
+.app-title {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+  color: #111;
+}
+
+.app-subtitle {
+  margin-top: 6px;
+  font-size: 13px;
+  color: #888;
+  max-width: 560px;
+}
+
+.app-main {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* ─── Controls ──────────────────────────────────────────────── */
+.controls {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* ─── Metric Toggle ─────────────────────────────────────────── */
+.metric-toggle {
+  display: inline-flex;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.toggle-btn {
+  padding: 6px 16px;
+  font-size: 13px;
+  font-family: inherit;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #666;
+  transition: background 0.15s, color 0.15s;
+}
+
+.toggle-btn:not(.toggle-btn--active):hover {
+  background: #f5f5f5;
+  color: #111;
+}
+
+.toggle-btn--active {
+  background: #111;
+  color: #fff;
+}
+
+.toggle-btn--active:hover {
+  background: #333;
+}
+
+/* ─── Chart ─────────────────────────────────────────────────── */
+.chart-wrapper {
+  width: 100%;
+}
+
+.chart-empty {
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #bbb;
+  font-size: 13px;
+}
+
+/* ─── City Selector ─────────────────────────────────────────── */
+.city-selector {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.region-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.region-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #bbb;
+}
+
+.chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.chip {
+  padding: 4px 12px;
+  font-size: 12px;
+  font-family: inherit;
+  background: transparent;
+  border: 1px solid #e0e0e0;
+  border-radius: 999px;
+  cursor: pointer;
+  color: #555;
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
+}
+
+.chip:hover {
+  border-color: #aaa;
+  color: #111;
+}
+
+.chip--active {
+  font-weight: 500;
+  background: transparent;
+}
+
+/* ─── Footer ────────────────────────────────────────────────── */
+.app-footer {
+  margin-top: 48px;
+  padding-top: 20px;
+  border-top: 1px solid #ececec;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 11px;
+  line-height: 1.5;
+  color: #999;
+}
+
+.app-footer a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: #d0d0d0;
+}
+
+.app-footer a:hover {
+  color: #555;
+}
