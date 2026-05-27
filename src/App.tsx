@@ -4,6 +4,7 @@ import type { Metric, ViewMode } from './utils/chartHelpers';
 import Toggle from './components/Toggle';
 import CitySelector from './components/CitySelector';
 import ComparisonChart from './components/ComparisonChart';
+import RankingsTable from './components/RankingsTable';
 
 const DEFAULT_IDS = ['london', 'toronto'];
 
@@ -57,6 +58,8 @@ function App() {
         />
 
         <CitySelector selectedIds={selectedIds} onChange={setSelectedIds} />
+
+        <RankingsTable metric={metric} selectedIds={selectedIds} />
       </main>
 
       <footer className="app-footer">

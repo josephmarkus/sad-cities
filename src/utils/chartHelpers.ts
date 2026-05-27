@@ -4,6 +4,39 @@ import { MONTHS } from '../data/cities';
 export type Metric = 'daylight' | 'rainfall' | 'temperature';
 export type ViewMode = 'absolute' | 'deviation';
 
+// Days per month for a non-leap reference year (used to convert hrs/day → hrs/year)
+export const DAYS_IN_MONTH = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31] as const;
+
+/** Total hours of daylight in the year (sum of hrs/day × days in each month). */
+export function yearlyDaylight(city: City): number {
+  return city.daylight.reduce((sum, h, i) => sum + h * DAYS_IN_MONTH[i], 0);
+}
+
+/** Total rainfall in mm for the year. */
+export function yearlyRainfall(city: City): number {
+  return city.rainfall.reduce((sum, mm) => sum + mm, 0);
+}
+
+/** Mean annual temperature in °C. */
+export function yearlyMeanTemperature(city: City): number {
+  return city.temperature.reduce((sum, t) => sum + t, 0) / 12;
+}
+
+/**
+ * Returns a short formatted yearly summary for the given metric,
+ * suitable for display in chart labels or table cells.
+ */
+export function formatYearlyTotal(city: City, metric: Metric): string {
+  if (metric === 'daylight') {
+    return `${new Intl.NumberFormat('en-US').format(Math.round(yearlyDaylight(city)))} hrs/yr`;
+  }
+  if (metric === 'rainfall') {
+    return `${Math.round(yearlyRainfall(city))} mm/yr`;
+  }
+  const mean = yearlyMeanTemperature(city);
+  return `${mean >= 0 ? '' : ''}${mean.toFixed(1)}°C avg`;
+}
+
 export interface ChartDataPoint {
   month: string;
   [cityName: string]: number | string;

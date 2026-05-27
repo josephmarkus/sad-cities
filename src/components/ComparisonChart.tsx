@@ -14,7 +14,7 @@ import {
 import type { City } from '../data/cities';
 import { CITIES } from '../data/cities';
 import type { Metric, ViewMode } from '../utils/chartHelpers';
-import { transformForRecharts, getYAxisLabel, METRIC_UNITS } from '../utils/chartHelpers';
+import { transformForRecharts, getYAxisLabel, METRIC_UNITS, formatYearlyTotal } from '../utils/chartHelpers';
 import { getColor } from '../utils/colors';
 
 interface ComparisonChartProps {
@@ -24,12 +24,15 @@ interface ComparisonChartProps {
 }
 
 const ALL_CITY_IDS = CITIES.map((c) => c.id);
-const RIGHT_LABEL_GUTTER = 96;
+const RIGHT_LABEL_GUTTER = 100;
 const LABEL_FONT_SIZE = 12;
-const LABEL_MIN_SPACING = 14;
+const LABEL_TOTAL_FONT_SIZE = 10;
+const LABEL_LINE_GAP = 13; // px between city name baseline and total baseline
+const LABEL_MIN_SPACING = 26; // tall enough for two-line labels
 
 interface LabelItem {
   name: string;
+  total: string;
   value: number;
   color: string;
 }
@@ -81,16 +84,25 @@ function CityEndLabels({ items }: { items: LabelItem[] }) {
   return (
     <g pointerEvents="none">
       {positioned.map((p) => (
-        <text
-          key={p.name}
-          x={x}
-          y={p.y}
-          fill={p.color}
-          fontSize={LABEL_FONT_SIZE}
-          dominantBaseline="middle"
-          style={{ fontWeight: 500 }}
-        >
-          {p.name}
+        <text key={p.name} x={x} y={p.y} fill={p.color}>
+          <tspan
+            x={x}
+            fontSize={LABEL_FONT_SIZE}
+            dominantBaseline="middle"
+            fontWeight={500}
+          >
+            {p.name}
+          </tspan>
+          <tspan
+            x={x}
+            dy={LABEL_LINE_GAP}
+            fontSize={LABEL_TOTAL_FONT_SIZE}
+            dominantBaseline="middle"
+            opacity={0.65}
+            fontWeight={400}
+          >
+            {p.total}
+          </tspan>
         </text>
       ))}
     </g>
@@ -152,10 +164,11 @@ export default function ComparisonChart({
     if (!lastPoint) return [];
     return selectedCities.map((city) => ({
       name: city.name,
+      total: formatYearlyTotal(city, metric),
       value: lastPoint[city.name] as number,
       color: getColor(city.id, ALL_CITY_IDS),
     }));
-  }, [data, selectedCities]);
+  }, [data, selectedCities, metric]);
 
   if (selectedCities.length === 0) {
     return (

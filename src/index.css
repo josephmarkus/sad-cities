@@ -31,7 +31,8 @@ body {
 .app-subtitle {
   margin-top: 6px;
   font-size: 13px;
-  color: #888;
+  font-weight: 500;
+  color: #595959;
   max-width: 560px;
 }
 
@@ -64,7 +65,7 @@ body {
   background: transparent;
   border: none;
   cursor: pointer;
-  color: #666;
+  color: #555;
   transition: background 0.15s, color 0.15s;
 }
 
@@ -92,7 +93,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #bbb;
+  color: #595959;
   font-size: 13px;
 }
 
@@ -114,7 +115,7 @@ body {
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: #bbb;
+  color: #595959;
 }
 
 .chip-row {
@@ -145,6 +146,94 @@ body {
   background: transparent;
 }
 
+/* ─── Rankings Table ────────────────────────────────────────── */
+.rankings-wrapper {
+  overflow-x: auto;
+}
+
+.rankings-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.rankings-table thead th {
+  text-align: left;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #595959;
+  padding: 0 8px 8px;
+  border-bottom: 1px solid #ececec;
+  white-space: nowrap;
+}
+
+.rankings-table thead th.rankings-col-num {
+  text-align: right;
+}
+
+.rankings-table thead th.rankings-col-active {
+  color: #555;
+}
+
+.rankings-table tbody tr {
+  border-bottom: 1px solid #f4f4f4;
+}
+
+.rankings-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.rankings-table tbody tr:hover {
+  background: #fafafa;
+}
+
+.rankings-table tbody tr.rankings-row-selected {
+  background: #fafafa;
+}
+
+.rankings-table tbody td {
+  padding: 4px 8px;
+  color: #444;
+  vertical-align: middle;
+}
+
+.rankings-col-rank {
+  width: 32px;
+  font-weight: 300;
+  color: #595959 !important;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  padding-right: 12px !important;
+}
+
+.rankings-col-city {
+  min-width: 160px;
+}
+
+.rankings-col-num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  font-weight: 500;
+  color: #595959;
+  min-width: 72px;
+}
+
+.rankings-col-active {
+  color: #222 !important;
+  font-weight: 500;
+}
+
+.rankings-unit {
+  font-weight: 400;
+  color: #595959;
+}
+
+.rankings-country {
+  color: #595959;
+  font-size: 11px;
+}
+
 /* ─── Footer ────────────────────────────────────────────────── */
 .app-footer {
   margin-top: 48px;
@@ -155,7 +244,7 @@ body {
   gap: 6px;
   font-size: 11px;
   line-height: 1.5;
-  color: #999;
+  color: #595959;
 }
 
 .app-footer a {
