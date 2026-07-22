@@ -213,6 +213,19 @@ export const CITIES: City[] = [
     rainfall: [49, 35, 42, 42, 53, 65, 81, 89, 90, 84, 73, 55],
     temperature: [-3, -4, 0, 5, 11, 15, 17, 16, 11, 6, 1, -1],
   },
+  {
+    id: 'milan',
+    name: 'Milan',
+    country: 'Italy',
+    region: 'western-europe',
+    // lat 45.5°N (~same as Montreal; daylight reused from Montreal)
+    // source: Wikipedia / Linate Airport (sunshine 1981–2010, temperature/rainfall 1991–2020)
+    sunlight: [2.9, 3.9, 5.5, 5.9, 6.8, 8.3, 9.5, 7.7, 6.0, 3.8, 2.4, 2.2],
+    daylight: [9.3, 10.6, 12.2, 14.1, 15.6, 16.3, 15.9, 14.6, 12.8, 11.1, 9.5, 8.9],
+    // source: Wikipedia / Linate Airport, climate-data.org/europe/italy/lombardy/milan-460/
+    rainfall: [36, 38, 42, 58, 70, 67, 44, 82, 73, 82, 112, 46],
+    temperature: [3, 5, 10, 14, 19, 23, 25, 24, 20, 14, 9, 4],
+  },
 
   // ─── EASTERN EUROPE ──────────────────────────────────────────────────────────
 
@@ -533,6 +546,32 @@ export const CITIES: City[] = [
     // source: Environment Canada / climate-data.org/north-america/canada/ontario/ottawa-5762/
     rainfall: [64, 52, 60, 64, 73, 80, 87, 87, 82, 72, 80, 68],
     temperature: [-10, -8, -2, 6, 13, 19, 21, 20, 16, 9, 2, -6],
+  },
+  {
+    id: 'calgary',
+    name: 'Calgary',
+    country: 'Canada',
+    region: 'canada',
+    // lat 51.1°N
+    // source: Wikipedia / ECCC (Calgary International Airport, 1991–2020)
+    sunlight: [3.9, 5.2, 5.7, 7.3, 8.0, 9.0, 10.1, 9.2, 6.9, 5.7, 4.0, 3.7],
+    daylight: [8.6, 10.1, 11.9, 14.0, 15.8, 16.8, 16.3, 14.7, 12.6, 10.4, 8.8, 8.0],
+    // source: Environment Canada / en.wikipedia.org/wiki/Climate_of_Calgary
+    rainfall: [10, 12, 18, 30, 61, 113, 66, 54, 37, 17, 16, 13],
+    temperature: [-8, -6, -2, 4, 10, 14, 17, 16, 12, 5, -2, -6],
+  },
+  {
+    id: 'halifax',
+    name: 'Halifax',
+    country: 'Canada',
+    region: 'canada',
+    // lat 44.6°N
+    // source: Wikipedia / ECCC (Halifax Stanfield Airport, 1991–2020; sunshine from Citadel Hill, 1981–2010)
+    sunlight: [3.5, 4.5, 4.6, 5.2, 6.2, 7.4, 7.6, 7.3, 6.0, 5.1, 3.6, 3.4],
+    daylight: [9.4, 10.7, 12.2, 14.1, 15.6, 16.3, 15.9, 14.6, 12.8, 11.1, 9.5, 9.0],
+    // source: Environment Canada / weatherspark.com/y/147454
+    rainfall: [126, 111, 120, 106, 110, 90, 87, 91, 107, 140, 159, 147],
+    temperature: [-5, -5, -1, 4, 10, 15, 19, 19, 15, 9, 4, -2],
   },
 
   // ─── MEXICO ──────────────────────────────────────────────────────────────────
