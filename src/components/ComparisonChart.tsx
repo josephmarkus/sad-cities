@@ -12,7 +12,6 @@ import {
   useYAxisScale,
 } from 'recharts';
 import type { City } from '../data/cities';
-import { CITIES } from '../data/cities';
 import type { Metric, ViewMode } from '../utils/chartHelpers';
 import { transformForRecharts, getYAxisLabel, METRIC_UNITS, formatYearlyTotal } from '../utils/chartHelpers';
 import { getColor } from '../utils/colors';
@@ -23,7 +22,6 @@ interface ComparisonChartProps {
   viewMode: ViewMode;
 }
 
-const ALL_CITY_IDS = CITIES.map((c) => c.id);
 const RIGHT_LABEL_GUTTER = 100;
 const LABEL_FONT_SIZE = 12;
 const LABEL_TOTAL_FONT_SIZE = 10;
@@ -159,6 +157,8 @@ export default function ComparisonChart({
     return ticks;
   }, [yDomain]);
 
+  const selectedIds = useMemo(() => selectedCities.map((c) => c.id), [selectedCities]);
+
   const labelItems = useMemo<LabelItem[]>(() => {
     const lastPoint = data[data.length - 1];
     if (!lastPoint) return [];
@@ -166,9 +166,9 @@ export default function ComparisonChart({
       name: city.name,
       total: formatYearlyTotal(city, metric),
       value: lastPoint[city.name] as number,
-      color: getColor(city.id, ALL_CITY_IDS),
+      color: getColor(city.id, selectedIds),
     }));
-  }, [data, selectedCities, metric]);
+  }, [data, selectedCities, selectedIds, metric]);
 
   if (selectedCities.length === 0) {
     return (
@@ -247,7 +247,7 @@ export default function ComparisonChart({
               key={city.id}
               type="monotone"
               dataKey={city.name}
-              stroke={getColor(city.id, ALL_CITY_IDS)}
+              stroke={getColor(city.id, selectedIds)}
               strokeWidth={2}
               dot={false}
               activeDot={{ r: 4, strokeWidth: 0 }}

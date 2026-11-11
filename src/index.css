@@ -256,3 +256,141 @@ body {
 .app-footer a:hover {
   color: #555;
 }
+
+/* ─── Day view tokens ───────────────────────────────────────── */
+:root {
+  --ink: #111;
+  --ink-2: #444;
+  --muted: #767676;
+  --surface: #fff;
+  --line: #e0e0e0;
+  --grid: #ececec;
+  --band: #f6f6f6;
+  --night: #232b45;
+  --day: #cfe1f6;
+  --sun: #f0a500;
+  --sun-ink: #8a5a00;
+}
+
+@media (max-width: 600px) {
+  .app { padding: 24px 16px 64px; }
+  .app-header { margin-bottom: 24px; }
+}
+
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap;
+}
+
+.dot {
+  display: inline-block; width: 9px; height: 9px; border-radius: 50%; flex: none;
+}
+
+.pill-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  min-height: 36px; padding: 0 14px;
+  font: inherit; font-size: 13px; font-weight: 500; color: var(--ink);
+  background: var(--surface); border: 1px solid var(--line); border-radius: 999px;
+  cursor: pointer; transition: background 0.15s, border-color 0.15s;
+}
+.pill-btn:hover { background: #f5f5f5; }
+.pill-btn:active { transform: scale(0.97); }
+
+/* ─── City picker ───────────────────────────────────────────── */
+.city-picker summary {
+  display: flex; align-items: baseline; gap: 10px; cursor: pointer;
+  list-style: none; padding: 10px 14px; min-height: 44px;
+  border: 1px solid var(--line); border-radius: 10px; background: var(--surface);
+}
+.city-picker summary::-webkit-details-marker { display: none; }
+.city-picker summary::after { content: '▾'; margin-left: auto; color: var(--muted); }
+.city-picker[open] summary::after { content: '▴'; }
+.city-picker[open] summary { margin-bottom: 16px; }
+.city-picker-label {
+  font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #595959;
+}
+.city-picker-names { font-weight: 500; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+/* ─── Day comparison ────────────────────────────────────────── */
+.day { display: flex; flex-direction: column; gap: 12px; }
+.day-bar {
+  position: sticky; top: 0; z-index: 5; background: #fafafa;
+  display: flex; align-items: center; gap: 8px; padding: 8px 0;
+}
+.day-date {
+  flex: none; width: auto; max-width: 100%;
+  font: inherit; font-size: 16px; font-weight: 600; color: var(--ink);
+  min-height: 36px; padding: 2px 12px;
+  border: 1px solid var(--line); border-radius: 999px; background: var(--surface);
+}
+.day-base { display: flex; flex-wrap: wrap; gap: 8px; }
+.day-base-btn--active { border-color: var(--ink); font-weight: 600; }
+
+.ribbon-legend { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 12px; color: var(--ink-2); }
+.ribbon-legend i {
+  display: inline-block; width: 16px; height: 12px; border-radius: 3px;
+  vertical-align: -2px; margin-right: 6px; box-shadow: inset 0 0 0 1px var(--ink-2);
+}
+
+.day-cards { display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); }
+.day-card {
+  display: flex; flex-direction: column; gap: 10px; min-width: 0;
+  padding: 14px 14px 10px; background: var(--surface);
+  border: 1px solid var(--line); border-radius: 12px;
+}
+.day-card-head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+.day-card-name { display: flex; align-items: center; gap: 8px; font-size: 16px; font-weight: 600; }
+.day-card-now { font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
+
+.day-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.day-stat { display: flex; flex-direction: column; min-width: 0; }
+.day-stat-label { font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #595959; }
+.day-stat-value { font-size: 24px; font-weight: 600; line-height: 1.15; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.day-stat-value small { font-size: 13px; font-weight: 500; color: var(--ink-2); margin-left: 1px; }
+.day-stat--sun .day-stat-value { color: var(--sun-ink); }
+.day-stat-delta { font-size: 12px; color: var(--ink-2); font-variant-numeric: tabular-nums; }
+
+.day-ribbon { display: block; width: 100%; height: auto; }
+.day-ribbon text { font-size: 10px; fill: var(--ink-2); font-variant-numeric: tabular-nums; }
+
+/* ─── Sections ──────────────────────────────────────────────── */
+.section { display: flex; flex-direction: column; gap: 12px; }
+.section-head { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+.section-head--stacked { flex-direction: column; align-items: flex-start; gap: 2px; }
+.section-title { font-size: 17px; font-weight: 600; letter-spacing: -0.2px; }
+.section-sub { font-size: 12px; color: #595959; }
+
+/* ─── Year view ─────────────────────────────────────────────── */
+.year-view { min-width: 0; }
+.year-readout {
+  display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: 13px;
+  min-height: 24px; margin-bottom: 4px; font-variant-numeric: tabular-nums; color: var(--ink-2);
+}
+.year-readout span { display: inline-flex; align-items: center; gap: 6px; }
+.year-readout b { color: var(--ink); font-weight: 600; }
+.year-readout-when { font-weight: 600; color: var(--ink); }
+.year-chart {
+  display: block; width: 100%;
+  touch-action: pan-y; cursor: crosshair; user-select: none; -webkit-user-select: none;
+}
+.year-chart text { font-size: 11px; fill: var(--muted); }
+
+/* ─── Month table ───────────────────────────────────────────── */
+.month-table-wrap { overflow-x: auto; }
+.month-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.month-table th, .month-table td { padding: 6px 8px; text-align: left; }
+.month-table thead th {
+  font-size: 12px; font-weight: 600; color: #595959; white-space: nowrap;
+  border-bottom: 1px solid var(--grid);
+}
+.month-table thead th .dot { margin-right: 6px; }
+.month-table tbody th { width: 44px; font-weight: 600; color: #595959; }
+.month-table tbody tr { cursor: pointer; }
+.month-table tbody tr:hover { background: #f5f5f5; }
+.month-table tbody tr.month-row--current { background: #eef0f3; }
+.month-table tbody tr:focus-visible { outline: 2px solid var(--ink); outline-offset: -2px; }
+.month-cell { display: flex; flex-direction: column; gap: 3px; min-width: 56px; }
+.month-cell-value { font-weight: 500; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.month-cell-best { font-size: 10px; font-weight: 400; color: #595959; }
+.month-cell-bar { height: 4px; border-radius: 2px; background: var(--grid); overflow: hidden; }
+.month-cell-bar i { display: block; height: 100%; border-radius: 2px; }

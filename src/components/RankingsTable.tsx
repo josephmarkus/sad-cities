@@ -9,8 +9,6 @@ import {
 } from '../utils/chartHelpers';
 import { getColor } from '../utils/colors';
 
-const ALL_CITY_IDS = CITIES.map((c) => c.id);
-
 interface RankingsTableProps {
   metric: Metric;
   selectedIds: string[];
@@ -75,7 +73,7 @@ export default function RankingsTable({ metric, selectedIds }: RankingsTableProp
         <tbody>
           {rows.map((row, i) => {
             const isSelected = selectedIds.includes(row.id);
-            const color = isSelected ? getColor(row.id, ALL_CITY_IDS) : undefined;
+            const color = isSelected ? getColor(row.id, selectedIds) : undefined;
             return (
               <tr key={row.id} className={isSelected ? 'rankings-row-selected' : ''}>
                 <td className="rankings-col-rank">{i + 1}</td>

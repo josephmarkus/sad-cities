@@ -1,13 +1,11 @@
 import type { City } from '../data/cities';
-import { CITIES, REGION_LABELS, REGION_ORDER, CITIES as ALL_CITIES } from '../data/cities';
+import { CITIES, REGION_LABELS, REGION_ORDER } from '../data/cities';
 import { getColor } from '../utils/colors';
 
 interface CitySelectorProps {
   selectedIds: string[];
   onChange: (ids: string[]) => void;
 }
-
-const ALL_CITY_IDS = ALL_CITIES.map((c) => c.id);
 
 function toggle(ids: string[], id: string): string[] {
   return ids.includes(id) ? ids.filter((i) => i !== id) : [...ids, id];
@@ -28,7 +26,7 @@ export default function CitySelector({ selectedIds, onChange }: CitySelectorProp
           <div className="chip-row">
             {cities.map((city: City) => {
               const active = selectedIds.includes(city.id);
-              const color = getColor(city.id, ALL_CITY_IDS);
+              const color = getColor(city.id, selectedIds);
               return (
                 <button
                   key={city.id}

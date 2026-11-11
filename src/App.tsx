@@ -1,10 +1,15 @@
 import { useState } from 'react'
 import { CITIES } from './data/cities';
 import type { Metric, ViewMode } from './utils/chartHelpers';
+import { DAY_VIEW_UNITS } from './utils/chartHelpers';
+import { todayDoy } from './utils/solar';
 import Toggle from './components/Toggle';
 import CitySelector from './components/CitySelector';
 import ComparisonChart from './components/ComparisonChart';
 import RankingsTable from './components/RankingsTable';
+import DayComparison from './components/DayComparison';
+import YearView from './components/YearView';
+import MonthTable from './components/MonthTable';
 
 const DEFAULT_IDS = ['london', 'toronto'];
 
@@ -15,17 +20,40 @@ const METRIC_OPTIONS: { label: string; value: Metric }[] = [
   { label: 'Temperature', value: 'temperature' },
 ];
 
+const DAY_METRIC_OPTIONS: { label: string; value: Metric }[] = [
+  { label: 'Sun', value: 'sunlight' },
+  { label: 'Daylight', value: 'daylight' },
+  { label: 'Temp', value: 'temperature' },
+  { label: 'Rain', value: 'rainfall' },
+];
+
 const VIEW_OPTIONS: { label: string; value: ViewMode }[] = [
   { label: 'Absolute', value: 'absolute' },
   { label: 'Deviation', value: 'deviation' },
 ];
+
+const TODAY = todayDoy();
 
 function App() {
   const [selectedIds, setSelectedIds] = useState<string[]>(DEFAULT_IDS);
   const [metric, setMetric] = useState<Metric>('sunlight');
   const [viewMode, setViewMode] = useState<ViewMode>('absolute');
 
+  // Day comparison state
+  const [doy, setDoy] = useState(TODAY);
+  const [baseId, setBaseId] = useState(DEFAULT_IDS[0]);
+  const [dayMetric, setDayMetric] = useState<Metric>('sunlight');
+
   const selectedCities = CITIES.filter((c) => selectedIds.includes(c.id));
+
+  // The base city is what every other city is compared against. If it gets
+  // deselected, fall back to the first remaining city.
+  const effectiveBaseId = selectedIds.includes(baseId) ? baseId : selectedIds[0] ?? '';
+  const dayCities = [
+    ...selectedCities.filter((c) => c.id === effectiveBaseId),
+    ...selectedCities.filter((c) => c.id !== effectiveBaseId),
+  ];
+  const selectedNames = selectedCities.map((c) => c.name).join(', ') || 'none';
 
   return (
     <div className="app">
@@ -37,28 +65,75 @@ function App() {
       </header>
 
       <main className="app-main">
-        <div className="controls">
-          <Toggle
-            value={metric}
-            options={METRIC_OPTIONS}
-            onChange={setMetric}
-            ariaLabel="Select metric"
-          />
-          <Toggle
-            value={viewMode}
-            options={VIEW_OPTIONS}
-            onChange={setViewMode}
-            ariaLabel="Select view mode"
-          />
-        </div>
+        <details className="city-picker">
+          <summary>
+            <span className="city-picker-label">Cities</span>
+            <span className="city-picker-names">{selectedNames}</span>
+          </summary>
+          <CitySelector selectedIds={selectedIds} onChange={setSelectedIds} />
+        </details>
 
-        <ComparisonChart
-          selectedCities={selectedCities}
-          metric={metric}
-          viewMode={viewMode}
+        <DayComparison
+          cities={dayCities}
+          baseId={effectiveBaseId}
+          onBaseChange={setBaseId}
+          doy={doy}
+          today={TODAY}
+          onDoyChange={setDoy}
         />
 
-        <CitySelector selectedIds={selectedIds} onChange={setSelectedIds} />
+        {dayCities.length > 0 && (
+          <>
+            <section className="section" aria-labelledby="year-title">
+              <div className="section-head">
+                <h2 id="year-title" className="section-title">Year view</h2>
+                <Toggle value={dayMetric} options={DAY_METRIC_OPTIONS} onChange={setDayMetric} ariaLabel="Select metric" />
+              </div>
+              <YearView
+                cities={dayCities}
+                baseId={effectiveBaseId}
+                metric={dayMetric}
+                doy={doy}
+                today={TODAY}
+                onDoyChange={setDoy}
+              />
+            </section>
+
+            <section className="section" aria-labelledby="month-title">
+              <div className="section-head section-head--stacked">
+                <h2 id="month-title" className="section-title">Month by month</h2>
+                <span className="section-sub">{DAY_VIEW_UNITS[dayMetric]}</span>
+              </div>
+              <MonthTable cities={dayCities} metric={dayMetric} doy={doy} onDoyChange={setDoy} />
+            </section>
+          </>
+        )}
+
+        <section className="section" aria-labelledby="overview-title">
+          <div className="section-head">
+            <h2 id="overview-title" className="section-title">Monthly averages</h2>
+          </div>
+          <div className="controls">
+            <Toggle
+              value={metric}
+              options={METRIC_OPTIONS}
+              onChange={setMetric}
+              ariaLabel="Select metric"
+            />
+            <Toggle
+              value={viewMode}
+              options={VIEW_OPTIONS}
+              onChange={setViewMode}
+              ariaLabel="Select view mode"
+            />
+          </div>
+
+          <ComparisonChart
+            selectedCities={selectedCities}
+            metric={metric}
+            viewMode={viewMode}
+          />
+        </section>
 
         <RankingsTable metric={metric} selectedIds={selectedIds} />
       </main>
@@ -77,10 +152,12 @@ function App() {
         <p>
           Sunlight hours: mean daily sunshine hours from WMO Climate Normals
           (1991–2020 where available), sourced from Wikipedia climate infoboxes
-          citing national meteorological services.
+          citing national meteorological services. Day view values are typical
+          for the date (monthly normals smoothed to a daily curve), not a forecast.
         </p>
         <p>
-          Daylight hours: derived from each city's latitude using the{' '}
+          Daylight hours, sunrise and sunset: computed from each city's
+          coordinates using the{' '}
           <a
             href="https://gml.noaa.gov/grad/solcalc/"
             target="_blank"
@@ -88,7 +165,7 @@ function App() {
           >
             NOAA Solar Calculator
           </a>{' '}
-          model.
+          model, shown in each city's local time.
         </p>
       </footer>
     </div>

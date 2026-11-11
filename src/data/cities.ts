@@ -44,6 +44,12 @@ export interface City {
   name: string;
   country: string;
   region: Region;
+  /** Latitude in degrees (north positive) */
+  lat: number;
+  /** Longitude in degrees (east positive) */
+  lon: number;
+  /** IANA time zone, used to show sunrise/sunset in local time */
+  timeZone: string;
   /** Average hours of sunshine per day for each month (Jan–Dec) */
   sunlight: Twelve;
   /** Average hours of daylight per day for each month (Jan–Dec) */
@@ -62,6 +68,9 @@ export const CITIES: City[] = [
     name: 'London',
     country: 'UK',
     region: 'western-europe',
+    lat: 51.51,
+    lon: -0.13,
+    timeZone: 'Europe/London',
     // lat 51.5°N
     // source: Wikipedia / Met Office (Kew, 1991–2020)
     sunlight: [1.9, 2.9, 4.1, 6.0, 6.9, 7.0, 7.2, 6.7, 5.1, 3.8, 2.3, 1.7],
@@ -75,6 +84,9 @@ export const CITIES: City[] = [
     name: 'Berlin',
     country: 'Germany',
     region: 'western-europe',
+    lat: 52.52,
+    lon: 13.40,
+    timeZone: 'Europe/Berlin',
     // lat 52.5°N
     // source: Wikipedia / DWD (Brandenburg, 1991–2020)
     sunlight: [1.7, 2.8, 4.1, 6.5, 7.5, 7.8, 7.5, 7.2, 5.6, 3.7, 1.9, 1.5],
@@ -88,6 +100,9 @@ export const CITIES: City[] = [
     name: 'Amsterdam',
     country: 'Netherlands',
     region: 'western-europe',
+    lat: 52.37,
+    lon: 4.90,
+    timeZone: 'Europe/Amsterdam',
     // lat 52.4°N
     // source: Wikipedia / KNMI
     sunlight: [2.2, 3.4, 4.7, 6.6, 7.4, 7.2, 7.3, 6.6, 5.1, 3.8, 2.2, 1.9],
@@ -101,6 +116,9 @@ export const CITIES: City[] = [
     name: 'Paris',
     country: 'France',
     region: 'western-europe',
+    lat: 48.86,
+    lon: 2.35,
+    timeZone: 'Europe/Paris',
     // lat 48.9°N
     // source: Wikipedia / Météo-France (Parc Montsouris)
     sunlight: [1.9, 3.0, 4.4, 5.9, 6.5, 6.8, 7.2, 6.9, 5.8, 3.8, 2.3, 1.8],
@@ -114,6 +132,9 @@ export const CITIES: City[] = [
     name: 'Stockholm',
     country: 'Sweden',
     region: 'western-europe',
+    lat: 59.33,
+    lon: 18.07,
+    timeZone: 'Europe/Stockholm',
     // lat 59.3°N
     // source: Wikipedia / SMHI
     sunlight: [1.4, 2.7, 4.9, 7.2, 8.9, 9.2, 9.0, 7.6, 5.7, 3.1, 1.5, 1.1],
@@ -127,6 +148,9 @@ export const CITIES: City[] = [
     name: 'Dublin',
     country: 'Ireland',
     region: 'western-europe',
+    lat: 53.35,
+    lon: -6.26,
+    timeZone: 'Europe/Dublin',
     // lat 53.3°N
     // source: Wikipedia / Met Éireann (Dublin Airport, 1991–2020)
     sunlight: [1.9, 2.9, 3.9, 5.5, 6.4, 6.0, 5.1, 5.0, 4.3, 3.4, 2.5, 1.8],
@@ -140,6 +164,9 @@ export const CITIES: City[] = [
     name: 'Zurich',
     country: 'Switzerland',
     region: 'western-europe',
+    lat: 47.37,
+    lon: 8.54,
+    timeZone: 'Europe/Zurich',
     // lat 47.4°N
     // source: Wikipedia / MeteoSwiss
     sunlight: [1.9, 3.2, 4.6, 5.9, 6.2, 6.9, 7.4, 7.0, 5.5, 3.5, 2.0, 1.5],
@@ -153,6 +180,9 @@ export const CITIES: City[] = [
     name: 'Munich',
     country: 'Germany',
     region: 'western-europe',
+    lat: 48.14,
+    lon: 11.58,
+    timeZone: 'Europe/Berlin',
     // lat 48.1°N
     // source: Wikipedia / DWD
     sunlight: [2.4, 3.4, 4.7, 6.2, 6.9, 7.5, 7.8, 7.5, 5.7, 4.0, 2.5, 2.1],
@@ -166,6 +196,9 @@ export const CITIES: City[] = [
     name: 'Barcelona',
     country: 'Spain',
     region: 'western-europe',
+    lat: 41.39,
+    lon: 2.17,
+    timeZone: 'Europe/Madrid',
     // lat 41.4°N
     // source: Wikipedia / AEMET (Can Bruixa, 1987–2010)
     sunlight: [4.8, 5.8, 6.5, 7.3, 7.9, 8.7, 10.0, 9.1, 7.3, 5.8, 4.9, 4.5],
@@ -179,6 +212,9 @@ export const CITIES: City[] = [
     name: 'Helsinki',
     country: 'Finland',
     region: 'western-europe',
+    lat: 60.17,
+    lon: 24.94,
+    timeZone: 'Europe/Helsinki',
     // lat 60.2°N
     // source: Wikipedia / FMI (Kumpula, 1991–2020)
     sunlight: [1.1, 2.5, 4.7, 6.8, 9.5, 9.3, 9.9, 8.0, 5.3, 2.9, 1.1, 0.7],
@@ -192,6 +228,9 @@ export const CITIES: City[] = [
     name: 'Copenhagen',
     country: 'Denmark',
     region: 'western-europe',
+    lat: 55.68,
+    lon: 12.57,
+    timeZone: 'Europe/Copenhagen',
     // lat 55.7°N
     // source: Wikipedia / DMI
     sunlight: [1.7, 2.4, 3.9, 6.0, 7.4, 7.1, 7.4, 6.4, 4.7, 3.3, 1.8, 1.3],
@@ -205,6 +244,9 @@ export const CITIES: City[] = [
     name: 'Oslo',
     country: 'Norway',
     region: 'western-europe',
+    lat: 59.91,
+    lon: 10.75,
+    timeZone: 'Europe/Oslo',
     // lat 59.9°N
     // source: Wikipedia / MET Norway
     sunlight: [1.5, 2.8, 4.6, 6.1, 8.1, 8.0, 7.8, 6.7, 5.1, 3.0, 1.7, 1.1],
@@ -218,6 +260,9 @@ export const CITIES: City[] = [
     name: 'Milan',
     country: 'Italy',
     region: 'western-europe',
+    lat: 45.46,
+    lon: 9.19,
+    timeZone: 'Europe/Rome',
     // lat 45.5°N (~same as Montreal; daylight reused from Montreal)
     // source: Wikipedia / Linate Airport (sunshine 1981–2010, temperature/rainfall 1991–2020)
     sunlight: [2.9, 3.9, 5.5, 5.9, 6.8, 8.3, 9.5, 7.7, 6.0, 3.8, 2.4, 2.2],
@@ -234,6 +279,9 @@ export const CITIES: City[] = [
     name: 'Warsaw',
     country: 'Poland',
     region: 'eastern-europe',
+    lat: 52.23,
+    lon: 21.01,
+    timeZone: 'Europe/Warsaw',
     // lat 52.2°N
     // source: Wikipedia / IMGW
     sunlight: [1.4, 2.4, 4.5, 7.0, 8.8, 9.6, 9.5, 9.0, 6.4, 4.0, 1.7, 1.1],
@@ -247,6 +295,9 @@ export const CITIES: City[] = [
     name: 'Tallinn',
     country: 'Estonia',
     region: 'eastern-europe',
+    lat: 59.44,
+    lon: 24.75,
+    timeZone: 'Europe/Tallinn',
     // lat 59.4°N
     // source: Wikipedia / EMHI
     sunlight: [1.0, 2.1, 4.8, 7.2, 9.9, 9.8, 10.1, 8.2, 5.4, 2.8, 1.0, 0.7],
@@ -260,6 +311,9 @@ export const CITIES: City[] = [
     name: 'Vilnius',
     country: 'Lithuania',
     region: 'eastern-europe',
+    lat: 54.69,
+    lon: 25.28,
+    timeZone: 'Europe/Vilnius',
     // lat 54.7°N
     // source: Wikipedia / LHMT
     sunlight: [1.1, 2.0, 4.3, 6.5, 8.4, 8.8, 8.5, 7.9, 5.6, 3.1, 1.0, 0.8],
@@ -273,6 +327,9 @@ export const CITIES: City[] = [
     name: 'Kyiv',
     country: 'Ukraine',
     region: 'eastern-europe',
+    lat: 50.45,
+    lon: 30.52,
+    timeZone: 'Europe/Kyiv',
     // lat 50.5°N
     // source: Wikipedia / UMC
     sunlight: [1.4, 2.3, 3.6, 5.4, 8.3, 9.1, 9.3, 8.1, 6.3, 4.0, 1.7, 1.0],
@@ -286,6 +343,9 @@ export const CITIES: City[] = [
     name: 'Bucharest',
     country: 'Romania',
     region: 'eastern-europe',
+    lat: 44.43,
+    lon: 26.10,
+    timeZone: 'Europe/Bucharest',
     // lat 44.4°N
     // source: Wikipedia / ANM
     sunlight: [2.5, 3.8, 5.1, 6.5, 7.9, 8.6, 9.5, 9.1, 7.0, 4.8, 2.8, 2.1],
@@ -299,6 +359,9 @@ export const CITIES: City[] = [
     name: 'Prague',
     country: 'Czech Republic',
     region: 'eastern-europe',
+    lat: 50.08,
+    lon: 14.44,
+    timeZone: 'Europe/Prague',
     // lat 50.1°N
     // source: Wikipedia / CHMI (Clementinum)
     sunlight: [1.7, 2.9, 4.2, 6.3, 7.0, 7.3, 7.4, 7.2, 5.6, 3.6, 1.8, 1.5],
@@ -312,6 +375,9 @@ export const CITIES: City[] = [
     name: 'Kraków',
     country: 'Poland',
     region: 'eastern-europe',
+    lat: 50.06,
+    lon: 19.94,
+    timeZone: 'Europe/Warsaw',
     // lat 50.1°N
     // source: Wikipedia / IMGW (Kraków Airport, 1971–2000)
     sunlight: [1.4, 2.3, 3.2, 4.6, 6.5, 6.5, 6.8, 6.5, 4.2, 3.2, 1.6, 1.0],
@@ -328,6 +394,9 @@ export const CITIES: City[] = [
     name: 'San Francisco',
     country: 'USA',
     region: 'us',
+    lat: 37.77,
+    lon: -122.42,
+    timeZone: 'America/Los_Angeles',
     // lat 37.8°N
     // source: Wikipedia / NOAA (Downtown SF)
     sunlight: [6.0, 7.4, 8.7, 10.3, 10.5, 10.4, 10.1, 9.3, 9.0, 8.0, 5.8, 5.2],
@@ -341,6 +410,9 @@ export const CITIES: City[] = [
     name: 'New York',
     country: 'USA',
     region: 'us',
+    lat: 40.71,
+    lon: -74.01,
+    timeZone: 'America/New_York',
     // lat 40.7°N
     // source: Wikipedia / NOAA (Central Park)
     sunlight: [5.2, 5.8, 6.9, 7.5, 8.3, 8.6, 8.7, 8.7, 7.3, 6.8, 5.0, 4.5],
@@ -354,6 +426,9 @@ export const CITIES: City[] = [
     name: 'Seattle',
     country: 'USA',
     region: 'us',
+    lat: 47.61,
+    lon: -122.33,
+    timeZone: 'America/Los_Angeles',
     // lat 47.6°N
     // source: Wikipedia / NOAA (1961–1990)
     sunlight: [2.3, 3.9, 5.8, 6.9, 8.2, 8.9, 10.1, 9.1, 7.4, 4.6, 2.4, 1.7],
@@ -367,6 +442,9 @@ export const CITIES: City[] = [
     name: 'Austin',
     country: 'USA',
     region: 'us',
+    lat: 30.27,
+    lon: -97.74,
+    timeZone: 'America/Chicago',
     // lat 30.3°N
     // source: Wikipedia / NOAA (Camp Mabry)
     sunlight: [5.3, 6.0, 6.6, 6.9, 7.3, 9.5, 10.2, 9.6, 7.8, 7.0, 5.6, 5.0],
@@ -380,6 +458,9 @@ export const CITIES: City[] = [
     name: 'Boston',
     country: 'USA',
     region: 'us',
+    lat: 42.36,
+    lon: -71.06,
+    timeZone: 'America/New_York',
     // lat 42.4°N
     // source: Wikipedia / NOAA
     sunlight: [5.3, 6.0, 6.9, 7.6, 8.6, 9.6, 9.7, 8.9, 7.9, 6.7, 4.8, 4.6],
@@ -393,6 +474,9 @@ export const CITIES: City[] = [
     name: 'Los Angeles',
     country: 'USA',
     region: 'us',
+    lat: 34.05,
+    lon: -118.24,
+    timeZone: 'America/Los_Angeles',
     // lat 34.1°N
     // source: Wikipedia / NOAA (Downtown LA / Dodger Stadium)
     sunlight: [7.3, 7.9, 8.6, 10.1, 8.9, 9.2, 11.7, 11.3, 9.3, 8.2, 7.2, 7.1],
@@ -406,6 +490,9 @@ export const CITIES: City[] = [
     name: 'Chicago',
     country: 'USA',
     region: 'us',
+    lat: 41.88,
+    lon: -87.63,
+    timeZone: 'America/Chicago',
     // lat 41.9°N
     // source: Wikipedia / NOAA (O'Hare)
     sunlight: [4.4, 4.9, 6.0, 7.2, 9.1, 10.4, 10.3, 9.1, 7.6, 6.2, 3.8, 3.4],
@@ -419,6 +506,9 @@ export const CITIES: City[] = [
     name: 'Denver',
     country: 'USA',
     region: 'us',
+    lat: 39.74,
+    lon: -104.99,
+    timeZone: 'America/Denver',
     // lat 39.7°N
     // source: Wikipedia / NOAA
     sunlight: [6.9, 7.5, 8.2, 9.2, 9.4, 10.5, 10.5, 9.9, 9.1, 8.0, 6.5, 6.3],
@@ -432,6 +522,9 @@ export const CITIES: City[] = [
     name: 'Atlanta',
     country: 'USA',
     region: 'us',
+    lat: 33.75,
+    lon: -84.39,
+    timeZone: 'America/New_York',
     // lat 33.7°N
     // source: Wikipedia / NOAA (1991–2020)
     sunlight: [5.3, 6.1, 7.1, 8.7, 9.3, 9.5, 8.8, 8.3, 7.6, 7.7, 6.2, 5.3],
@@ -445,6 +538,9 @@ export const CITIES: City[] = [
     name: 'Raleigh',
     country: 'USA',
     region: 'us',
+    lat: 35.78,
+    lon: -78.64,
+    timeZone: 'America/New_York',
     // lat 35.8°N
     // source: Wikipedia / NOAA
     sunlight: [5.3, 6.2, 7.4, 8.4, 8.3, 8.9, 8.4, 7.7, 7.3, 7.0, 5.8, 5.1],
@@ -458,6 +554,9 @@ export const CITIES: City[] = [
     name: 'Miami',
     country: 'USA',
     region: 'us',
+    lat: 25.76,
+    lon: -80.19,
+    timeZone: 'America/New_York',
     // lat 25.8°N
     // source: Wikipedia / NOAA (1991–2020)
     sunlight: [7.1, 7.7, 8.9, 9.8, 9.7, 9.6, 10.0, 9.3, 8.7, 8.4, 7.4, 7.0],
@@ -471,6 +570,9 @@ export const CITIES: City[] = [
     name: 'Washington D.C.',
     country: 'USA',
     region: 'us',
+    lat: 38.91,
+    lon: -77.04,
+    timeZone: 'America/New_York',
     // lat 38.9°N
     // source: Wikipedia / NOAA (Reagan National)
     sunlight: [4.7, 5.4, 6.6, 7.6, 8.4, 9.4, 9.0, 8.5, 7.5, 6.6, 5.0, 4.3],
@@ -487,6 +589,9 @@ export const CITIES: City[] = [
     name: 'Toronto',
     country: 'Canada',
     region: 'canada',
+    lat: 43.65,
+    lon: -79.38,
+    timeZone: 'America/Toronto',
     // lat 43.7°N
     // source: Wikipedia / ECCC (Pearson Airport)
     sunlight: [2.8, 4.0, 5.2, 6.0, 7.3, 8.7, 9.0, 7.9, 6.5, 5.0, 3.0, 2.5],
@@ -500,6 +605,9 @@ export const CITIES: City[] = [
     name: 'Vancouver',
     country: 'Canada',
     region: 'canada',
+    lat: 49.28,
+    lon: -123.12,
+    timeZone: 'America/Vancouver',
     // lat 49.2°N
     // source: Wikipedia / ECCC
     sunlight: [1.9, 3.3, 4.3, 6.2, 7.2, 7.6, 9.4, 8.9, 7.1, 3.9, 2.0, 1.8],
@@ -513,6 +621,9 @@ export const CITIES: City[] = [
     name: 'Montreal',
     country: 'Canada',
     region: 'canada',
+    lat: 45.50,
+    lon: -73.57,
+    timeZone: 'America/Toronto',
     // lat 45.5°N
     // source: Wikipedia / ECCC
     sunlight: [3.3, 4.6, 5.3, 5.9, 7.4, 8.0, 8.8, 7.9, 6.1, 4.6, 2.8, 2.7],
@@ -526,6 +637,9 @@ export const CITIES: City[] = [
     name: 'Waterloo',
     country: 'Canada',
     region: 'canada',
+    lat: 43.46,
+    lon: -80.52,
+    timeZone: 'America/Toronto',
     // lat 43.5°N (approximately same as Toronto)
     // source: weather-and-climate.com (Hamilton station, 1990–2020); anchored to July 9.8 h/day, Dec 2.3 h/day, annual ~2,120 h
     sunlight: [2.8, 4.0, 5.3, 6.2, 7.6, 8.9, 9.8, 8.5, 6.6, 5.1, 3.1, 2.3],
@@ -539,6 +653,9 @@ export const CITIES: City[] = [
     name: 'Ottawa',
     country: 'Canada',
     region: 'canada',
+    lat: 45.42,
+    lon: -75.70,
+    timeZone: 'America/Toronto',
     // lat 45.4°N
     // source: Wikipedia / ECCC
     sunlight: [3.9, 4.1, 5.4, 6.3, 6.8, 9.1, 9.7, 7.5, 7.1, 4.8, 3.1, 2.2],
@@ -552,6 +669,9 @@ export const CITIES: City[] = [
     name: 'Calgary',
     country: 'Canada',
     region: 'canada',
+    lat: 51.05,
+    lon: -114.07,
+    timeZone: 'America/Edmonton',
     // lat 51.1°N
     // source: Wikipedia / ECCC (Calgary International Airport, 1991–2020)
     sunlight: [3.9, 5.2, 5.7, 7.3, 8.0, 9.0, 10.1, 9.2, 6.9, 5.7, 4.0, 3.7],
@@ -565,6 +685,9 @@ export const CITIES: City[] = [
     name: 'Halifax',
     country: 'Canada',
     region: 'canada',
+    lat: 44.65,
+    lon: -63.57,
+    timeZone: 'America/Halifax',
     // lat 44.6°N
     // source: Wikipedia / ECCC (Halifax Stanfield Airport, 1991–2020; sunshine from Citadel Hill, 1981–2010)
     sunlight: [3.5, 4.5, 4.6, 5.2, 6.2, 7.4, 7.6, 7.3, 6.0, 5.1, 3.6, 3.4],
@@ -581,6 +704,9 @@ export const CITIES: City[] = [
     name: 'Mexico City',
     country: 'Mexico',
     region: 'mexico',
+    lat: 19.43,
+    lon: -99.13,
+    timeZone: 'America/Mexico_City',
     // lat 19.4°N
     // source: nomadseason.com / SMN (Observatorio, estimated; rainy season Jun–Sep reduces sunshine)
     sunlight: [6.5, 7.5, 8.1, 9.0, 9.2, 7.7, 7.4, 7.1, 5.7, 6.8, 7.2, 6.1],
@@ -594,6 +720,9 @@ export const CITIES: City[] = [
     name: 'Guadalajara',
     country: 'Mexico',
     region: 'mexico',
+    lat: 20.66,
+    lon: -103.35,
+    timeZone: 'America/Mexico_City',
     // lat 20.7°N
     // source: Wikipedia / SMN
     sunlight: [6.6, 8.1, 8.5, 8.7, 9.0, 7.1, 6.3, 6.8, 6.2, 7.1, 7.5, 6.1],
@@ -607,6 +736,9 @@ export const CITIES: City[] = [
     name: 'Monterrey',
     country: 'Mexico',
     region: 'mexico',
+    lat: 25.69,
+    lon: -100.32,
+    timeZone: 'America/Monterrey',
     // lat 25.7°N
     // source: Wikipedia / SMN
     sunlight: [5.2, 5.8, 5.8, 6.3, 6.7, 7.4, 7.7, 8.3, 6.1, 5.8, 5.2, 4.5],

@@ -97,6 +97,14 @@ export const METRIC_DEVIATION_LABELS: Record<Metric, string> = {
   temperature: 'Temperature Δ from yearly mean (°C)',
 };
 
+/** Unit captions for per-day / per-month views. */
+export const DAY_VIEW_UNITS: Record<Metric, string> = {
+  sunlight: 'Sunshine, hours per day',
+  daylight: 'Daylight, hours per day',
+  temperature: 'Mean temperature, °C',
+  rainfall: 'Rainfall, mm per month',
+};
+
 export const METRIC_UNITS: Record<Metric, string> = {
   sunlight: 'h',
   daylight: 'h',
