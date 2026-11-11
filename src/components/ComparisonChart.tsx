@@ -206,17 +206,17 @@ export default function ComparisonChart({
           data={data}
           margin={{ top: 12, right: RIGHT_LABEL_GUTTER, bottom: 0, left: 8 }}
         >
-          <CartesianGrid stroke="#f0f0f0" vertical={false} />
+          <CartesianGrid stroke="var(--grid)" vertical={false} />
           <XAxis
             dataKey="month"
-            tick={{ fontSize: 12, fill: '#888' }}
+            tick={{ fontSize: 12, fill: 'var(--muted)' }}
             axisLine={false}
             tickLine={false}
           />
           <YAxis
             domain={yDomain}
             ticks={yTicks}
-            tick={{ fontSize: 12, fill: '#888' }}
+            tick={{ fontSize: 12, fill: 'var(--muted)' }}
             axisLine={false}
             tickLine={false}
             tickFormatter={formatTick}
@@ -225,16 +225,18 @@ export default function ComparisonChart({
               angle: -90,
               position: 'insideLeft',
               offset: 8,
-              style: { fontSize: 11, fill: '#aaa', textAnchor: 'middle' },
+              style: { fontSize: 11, fill: 'var(--muted)', textAnchor: 'middle' },
             }}
             width={64}
           />
           {viewMode === 'deviation' && (
-            <ReferenceLine y={0} stroke="#d0d0d0" strokeDasharray="3 3" />
+            <ReferenceLine y={0} stroke="var(--line)" strokeDasharray="3 3" />
           )}
           <Tooltip
             contentStyle={{
-              border: '1px solid #e5e5e5',
+              border: '1px solid var(--line)',
+              background: 'var(--surface)',
+              color: 'var(--ink)',
               borderRadius: 6,
               fontSize: 12,
               boxShadow: 'none',

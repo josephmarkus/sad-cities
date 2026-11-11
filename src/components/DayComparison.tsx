@@ -20,7 +20,8 @@ interface DayComparisonProps {
   /** Selected cities, base city first */
   cities: City[];
   baseId: string;
-  onBaseChange: (id: string) => void;
+  /** City chips + picker, rendered between the date bar and the legend */
+  chips: ReactNode;
   doy: number;
   today: number;
   onDoyChange: (doy: number) => void;
@@ -40,7 +41,7 @@ function useMinuteTick(enabled: boolean): number {
 export default function DayComparison({
   cities,
   baseId,
-  onBaseChange,
+  chips,
   doy,
   today,
   onDoyChange,
@@ -72,21 +73,7 @@ export default function DayComparison({
         </button>
       </div>
 
-      {cities.length > 1 && (
-        <div className="day-base" role="group" aria-label="Compare against">
-          {cities.map((c) => (
-            <button
-              key={c.id}
-              className={`pill-btn day-base-btn${c.id === baseId ? ' day-base-btn--active' : ''}`}
-              aria-pressed={c.id === baseId}
-              onClick={() => onBaseChange(c.id)}
-            >
-              <span className="dot" style={{ background: getColor(c.id, selectedIds) }} />
-              {c.name}
-            </button>
-          ))}
-        </div>
-      )}
+      {chips}
 
       <div className="ribbon-legend" aria-hidden="true">
         <span><i style={{ background: 'var(--night)' }} />Night</span>
@@ -95,7 +82,7 @@ export default function DayComparison({
       </div>
 
       {cities.length === 0 ? (
-        <p className="chart-empty">Pick a city below to see its day.</p>
+        <p className="chart-empty">Add a city to see its day.</p>
       ) : (
         <div className="day-cards">
           {cities.map((city) => (

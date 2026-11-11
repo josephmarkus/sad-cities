@@ -4,7 +4,7 @@ import type { Metric, ViewMode } from './utils/chartHelpers';
 import { DAY_VIEW_UNITS } from './utils/chartHelpers';
 import { todayDoy } from './utils/solar';
 import Toggle from './components/Toggle';
-import CitySelector from './components/CitySelector';
+import CityChips from './components/CityChips';
 import ComparisonChart from './components/ComparisonChart';
 import RankingsTable from './components/RankingsTable';
 import DayComparison from './components/DayComparison';
@@ -53,7 +53,6 @@ function App() {
     ...selectedCities.filter((c) => c.id === effectiveBaseId),
     ...selectedCities.filter((c) => c.id !== effectiveBaseId),
   ];
-  const selectedNames = selectedCities.map((c) => c.name).join(', ') || 'none';
 
   return (
     <div className="app">
@@ -65,18 +64,18 @@ function App() {
       </header>
 
       <main className="app-main">
-        <details className="city-picker">
-          <summary>
-            <span className="city-picker-label">Cities</span>
-            <span className="city-picker-names">{selectedNames}</span>
-          </summary>
-          <CitySelector selectedIds={selectedIds} onChange={setSelectedIds} />
-        </details>
-
         <DayComparison
           cities={dayCities}
           baseId={effectiveBaseId}
-          onBaseChange={setBaseId}
+          chips={
+            <CityChips
+              selectedIds={selectedIds}
+              onChange={setSelectedIds}
+              baseId={effectiveBaseId}
+              onBaseChange={setBaseId}
+              doy={doy}
+            />
+          }
           doy={doy}
           today={TODAY}
           onDoyChange={setDoy}
@@ -89,14 +88,16 @@ function App() {
                 <h2 id="year-title" className="section-title">Year view</h2>
                 <Toggle value={dayMetric} options={DAY_METRIC_OPTIONS} onChange={setDayMetric} ariaLabel="Select metric" />
               </div>
-              <YearView
-                cities={dayCities}
-                baseId={effectiveBaseId}
-                metric={dayMetric}
-                doy={doy}
-                today={TODAY}
-                onDoyChange={setDoy}
-              />
+              <div className="panel">
+                <YearView
+                  cities={dayCities}
+                  baseId={effectiveBaseId}
+                  metric={dayMetric}
+                  doy={doy}
+                  today={TODAY}
+                  onDoyChange={setDoy}
+                />
+              </div>
             </section>
 
             <section className="section" aria-labelledby="month-title">
@@ -104,7 +105,9 @@ function App() {
                 <h2 id="month-title" className="section-title">Month by month</h2>
                 <span className="section-sub">{DAY_VIEW_UNITS[dayMetric]}</span>
               </div>
-              <MonthTable cities={dayCities} metric={dayMetric} doy={doy} onDoyChange={setDoy} />
+              <div className="panel">
+                <MonthTable cities={dayCities} metric={dayMetric} doy={doy} onDoyChange={setDoy} />
+              </div>
             </section>
           </>
         )}
@@ -128,14 +131,21 @@ function App() {
             />
           </div>
 
-          <ComparisonChart
-            selectedCities={selectedCities}
-            metric={metric}
-            viewMode={viewMode}
-          />
+          <div className="panel">
+            <ComparisonChart
+              selectedCities={selectedCities}
+              metric={metric}
+              viewMode={viewMode}
+            />
+          </div>
         </section>
 
-        <RankingsTable metric={metric} selectedIds={selectedIds} />
+        <section className="section" aria-labelledby="rankings-title">
+          <h2 id="rankings-title" className="section-title">Rankings</h2>
+          <div className="panel">
+            <RankingsTable metric={metric} selectedIds={selectedIds} />
+          </div>
+        </section>
       </main>
 
       <footer className="app-footer">
