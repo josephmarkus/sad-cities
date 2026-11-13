@@ -1,8 +1,9 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { CITIES } from './data/cities';
 import type { Metric, ViewMode } from './utils/chartHelpers';
 import { DAY_VIEW_UNITS } from './utils/chartHelpers';
 import { todayDoy } from './utils/solar';
+import { readCitiesFromUrl, writeCitiesToUrl } from './utils/urlCities';
 import Toggle from './components/Toggle';
 import CityChips from './components/CityChips';
 import ComparisonChart from './components/ComparisonChart';
@@ -35,14 +36,19 @@ const VIEW_OPTIONS: { label: string; value: ViewMode }[] = [
 const TODAY = todayDoy();
 
 function App() {
-  const [selectedIds, setSelectedIds] = useState<string[]>(DEFAULT_IDS);
+  const [selectedIds, setSelectedIds] = useState<string[]>(() => readCitiesFromUrl() ?? DEFAULT_IDS);
   const [metric, setMetric] = useState<Metric>('sunlight');
   const [viewMode, setViewMode] = useState<ViewMode>('absolute');
 
   // Day comparison state
   const [doy, setDoy] = useState(TODAY);
-  const [baseId, setBaseId] = useState(DEFAULT_IDS[0]);
+  const [baseId, setBaseId] = useState(() => selectedIds[0] ?? '');
   const [dayMetric, setDayMetric] = useState<Metric>('sunlight');
+
+  // Keep the URL in sync so the current selection can be shared as a link.
+  useEffect(() => {
+    writeCitiesToUrl(selectedIds);
+  }, [selectedIds]);
 
   const selectedCities = CITIES.filter((c) => selectedIds.includes(c.id));
 
