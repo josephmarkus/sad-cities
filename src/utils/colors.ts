@@ -14,7 +14,7 @@ const PALETTE_SIZE = 16;
  * Colours are assigned by the city's position among the *selected* cities
  * (in the canonical CITIES order), so every selected city gets a distinct
  * colour regardless of the order the cities were picked in. Indexing into
- * all 42 cities instead would make cities 16 apart collide — e.g. London
+ * all cities instead would make cities 16 apart collide — e.g. London
  * and Toronto were both blue.
  */
 export function getColor(cityId: string, selectedIds: readonly string[]): string {

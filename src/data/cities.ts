@@ -80,6 +80,86 @@ export const CITIES: City[] = [
     temperature: [5, 5, 7, 9, 13, 16, 18, 18, 15, 12, 8, 5],
   },
   {
+    id: 'manchester',
+    name: 'Manchester',
+    country: 'UK',
+    region: 'western-europe',
+    lat: 53.48,
+    lon: -2.24,
+    timeZone: 'Europe/London',
+    // lat 53.5°N
+    // source: Wikipedia / Met Office (Manchester Airport, 1991–2020)
+    sunlight: [1.7, 2.6, 3.4, 5.1, 6.2, 5.8, 5.7, 5.2, 4.3, 3.0, 2.0, 1.5],
+    daylight: [8.1, 9.9, 11.8, 14.0, 15.9, 17.0, 16.5, 14.8, 12.7, 10.6, 8.6, 7.5],
+    // source: Met Office / climate-data.org/europe/united-kingdom/england/manchester-4185/
+    rainfall: [79, 63, 60, 53, 56, 69, 70, 79, 72, 92, 93, 98],
+    temperature: [5, 5, 7, 9, 12, 15, 17, 16, 14, 11, 7, 5],
+  },
+  {
+    id: 'liverpool',
+    name: 'Liverpool',
+    country: 'UK',
+    region: 'western-europe',
+    lat: 53.41,
+    lon: -2.98,
+    timeZone: 'Europe/London',
+    // lat 53.4°N
+    // source: Wikipedia / Met Office (Crosby, 1991–2020)
+    sunlight: [1.8, 2.8, 3.7, 5.6, 6.9, 6.6, 6.5, 6.0, 4.7, 3.2, 2.1, 1.6],
+    daylight: [8.1, 9.9, 11.8, 14.0, 15.9, 17.0, 16.5, 14.8, 12.7, 10.6, 8.6, 7.5],
+    // source: Met Office / climate-data.org/europe/united-kingdom/england/liverpool-1785/
+    rainfall: [72, 56, 54, 49, 48, 59, 61, 71, 72, 89, 88, 84],
+    temperature: [5, 5, 7, 9, 12, 14, 16, 16, 14, 11, 8, 5],
+  },
+  {
+    id: 'leeds',
+    name: 'Leeds',
+    country: 'UK',
+    region: 'western-europe',
+    lat: 53.80,
+    lon: -1.55,
+    timeZone: 'Europe/London',
+    // lat 53.8°N
+    // source: Wikipedia / Met Office (Bramham, 1991–2020)
+    sunlight: [1.8, 2.8, 3.6, 5.0, 6.1, 5.9, 6.0, 5.5, 4.4, 3.1, 2.1, 1.6],
+    daylight: [8.0, 9.8, 11.8, 14.0, 16.0, 17.1, 16.6, 14.9, 12.7, 10.6, 8.6, 7.4],
+    // source: Met Office / climate-data.org/europe/united-kingdom/england/leeds-1792/
+    rainfall: [66, 52, 50, 50, 47, 63, 62, 67, 60, 72, 79, 79],
+    temperature: [4, 5, 6, 9, 12, 15, 17, 16, 14, 10, 7, 4],
+  },
+  {
+    id: 'glasgow',
+    name: 'Glasgow',
+    country: 'UK',
+    region: 'western-europe',
+    lat: 55.86,
+    lon: -4.25,
+    timeZone: 'Europe/London',
+    // lat 55.9°N
+    // source: Wikipedia / Met Office (Paisley/Bishopton, 1991–2020)
+    sunlight: [1.3, 2.4, 3.4, 4.9, 6.3, 5.5, 5.3, 4.8, 3.8, 2.6, 1.7, 1.2],
+    daylight: [7.6, 9.7, 11.8, 14.2, 16.3, 17.5, 17.0, 15.1, 12.8, 10.5, 8.3, 7.0],
+    // source: Met Office / climate-data.org/europe/united-kingdom/scotland/glasgow-15/
+    rainfall: [136, 100, 96, 66, 66, 68, 79, 95, 104, 127, 128, 133],
+    temperature: [4, 4, 6, 8, 11, 14, 16, 15, 13, 10, 6, 4],
+  },
+  {
+    id: 'edinburgh',
+    name: 'Edinburgh',
+    country: 'UK',
+    region: 'western-europe',
+    lat: 55.95,
+    lon: -3.19,
+    timeZone: 'Europe/London',
+    // lat 56.0°N
+    // source: Wikipedia / Met Office (Royal Botanic Garden, 1991–2020)
+    sunlight: [1.7, 2.8, 3.6, 5.0, 6.3, 5.5, 5.5, 5.0, 4.2, 3.1, 2.1, 1.5],
+    daylight: [7.6, 9.6, 11.8, 14.2, 16.3, 17.6, 17.0, 15.1, 12.8, 10.5, 8.3, 7.0],
+    // source: Met Office / climate-data.org/europe/united-kingdom/scotland/edinburgh-14/
+    rainfall: [64, 49, 47, 39, 51, 60, 69, 71, 54, 72, 64, 64],
+    temperature: [4, 5, 6, 8, 11, 14, 16, 15, 13, 10, 6, 4],
+  },
+  {
     id: 'berlin',
     name: 'Berlin',
     country: 'Germany',
