@@ -9,7 +9,8 @@
  *   Computed as total monthly sunshine hours ÷ days in month.
  *   Notable exceptions: Barcelona (Can Bruixa 1987–2010), Seattle (NOAA
  *   1961–1990), Kraków (Airport 1971–2000), Waterloo (estimated from nearby
- *   Hamilton/Toronto stations, weather-and-climate.com 1990–2020).
+ *   Hamilton/Toronto stations, weather-and-climate.com 1990–2020),
+ *   Islamabad (NOAA 1961–1990).
  *
  * DAYLIGHT (hours/day per month):
  *   Astronomical day-length derived from each city's latitude using the
@@ -37,7 +38,8 @@ export type Region =
   | 'eastern-europe'
   | 'us'
   | 'canada'
-  | 'mexico';
+  | 'mexico'
+  | 'asia';
 
 export interface City {
   id: string;
@@ -827,6 +829,25 @@ export const CITIES: City[] = [
     rainfall: [23, 19, 23, 36, 41, 74, 48, 73, 139, 72, 25, 19],
     temperature: [15, 17, 21, 24, 27, 28, 28, 28, 26, 23, 19, 16],
   },
+
+  // ─── ASIA ────────────────────────────────────────────────────────────────────
+
+  {
+    id: 'islamabad',
+    name: 'Islamabad',
+    country: 'Pakistan',
+    region: 'asia',
+    lat: 33.69,
+    lon: 73.06,
+    timeZone: 'Asia/Karachi',
+    // lat 33.7°N
+    // source: Wikipedia / NOAA (Islamabad, sunshine 1961–1990)
+    sunlight: [6.3, 6.7, 6.5, 8.4, 10.3, 10.0, 8.5, 8.1, 8.7, 8.9, 8.3, 6.3],
+    daylight: [10.2, 11.0, 12.0, 13.0, 13.9, 14.4, 14.2, 13.4, 12.4, 11.4, 10.4, 9.9],
+    // source: Wikipedia (Template:Islamabad weatherbox, 1991–2020 normals)
+    rainfall: [55, 93, 95, 58, 40, 78, 311, 317, 135, 34, 18, 26],
+    temperature: [11, 13, 18, 24, 29, 31, 30, 29, 28, 23, 17, 13],
+  },
 ];
 
 export const REGION_LABELS: Record<Region, string> = {
@@ -835,6 +856,7 @@ export const REGION_LABELS: Record<Region, string> = {
   'us': 'United States',
   'canada': 'Canada',
   'mexico': 'Mexico',
+  'asia': 'Asia',
 };
 
 export const REGION_ORDER: Region[] = [
@@ -843,6 +865,7 @@ export const REGION_ORDER: Region[] = [
   'us',
   'canada',
   'mexico',
+  'asia',
 ];
 
 export const MONTHS = [
