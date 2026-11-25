@@ -76,7 +76,7 @@ export const CITIES: City[] = [
     // lat 51.5°N
     // source: Wikipedia / Met Office (Kew, 1991–2020)
     sunlight: [1.9, 2.9, 4.1, 6.0, 6.9, 7.0, 7.2, 6.7, 5.1, 3.8, 2.3, 1.7],
-    daylight: [8.5, 10.0, 11.9, 14.0, 15.8, 16.8, 16.3, 14.7, 12.6, 10.4, 8.7, 7.9],
+    daylight: [8.4, 10.0, 11.8, 13.9, 15.6, 16.6, 16.2, 14.6, 12.7, 10.7, 8.9, 7.9],
     // source: Met Office / climate-data.org/europe/great-britain/england/london-461/
     rainfall: [55, 40, 42, 44, 49, 45, 44, 49, 49, 68, 59, 55],
     temperature: [5, 5, 7, 9, 13, 16, 18, 18, 15, 12, 8, 5],
@@ -172,7 +172,7 @@ export const CITIES: City[] = [
     // lat 52.5°N
     // source: Wikipedia / DWD (Brandenburg, 1991–2020)
     sunlight: [1.7, 2.8, 4.1, 6.5, 7.5, 7.8, 7.5, 7.2, 5.6, 3.7, 1.9, 1.5],
-    daylight: [8.3, 9.9, 11.9, 14.1, 16.0, 17.1, 16.6, 14.9, 12.7, 10.5, 8.6, 7.8],
+    daylight: [8.2, 9.9, 11.8, 13.9, 15.8, 16.8, 16.3, 14.7, 12.7, 10.7, 8.8, 7.7],
     // source: Deutscher Wetterdienst / climate-data.org/europe/germany/berlin/berlin-5765/
     rainfall: [42, 33, 40, 37, 54, 68, 55, 58, 45, 37, 44, 55],
     temperature: [0, 1, 5, 9, 14, 17, 19, 19, 14, 9, 4, 1],
@@ -188,7 +188,7 @@ export const CITIES: City[] = [
     // lat 52.4°N
     // source: Wikipedia / KNMI
     sunlight: [2.2, 3.4, 4.7, 6.6, 7.4, 7.2, 7.3, 6.6, 5.1, 3.8, 2.2, 1.9],
-    daylight: [8.3, 9.9, 11.9, 14.1, 15.9, 17.0, 16.5, 14.9, 12.7, 10.5, 8.6, 7.8],
+    daylight: [8.2, 10.0, 11.8, 13.9, 15.7, 16.8, 16.3, 14.7, 12.7, 10.7, 8.8, 7.7],
     // source: KNMI / climate-data.org/europe/the-netherlands/amsterdam-9/
     rainfall: [68, 47, 61, 44, 55, 65, 71, 66, 72, 80, 80, 77],
     temperature: [4, 4, 6, 9, 13, 15, 17, 17, 15, 11, 7, 5],
@@ -204,7 +204,7 @@ export const CITIES: City[] = [
     // lat 48.9°N
     // source: Wikipedia / Météo-France (Parc Montsouris)
     sunlight: [1.9, 3.0, 4.4, 5.9, 6.5, 6.8, 7.2, 6.9, 5.8, 3.8, 2.3, 1.8],
-    daylight: [8.9, 10.3, 12.1, 14.1, 15.8, 16.7, 16.2, 14.7, 12.7, 10.7, 9.0, 8.3],
+    daylight: [8.7, 10.2, 11.9, 13.7, 15.3, 16.2, 15.8, 14.4, 12.6, 10.8, 9.2, 8.3],
     // source: Météo-France / climate-data.org/europe/france/ile-de-france/paris-30/
     rainfall: [51, 41, 48, 51, 63, 53, 55, 53, 55, 55, 52, 50],
     temperature: [5, 5, 9, 11, 15, 18, 20, 20, 16, 12, 8, 5],
@@ -220,7 +220,7 @@ export const CITIES: City[] = [
     // lat 59.3°N
     // source: Wikipedia / SMHI
     sunlight: [1.4, 2.7, 4.9, 7.2, 8.9, 9.2, 9.0, 7.6, 5.7, 3.1, 1.5, 1.1],
-    daylight: [7.0, 9.1, 11.7, 14.5, 17.1, 18.6, 18.0, 15.8, 13.1, 10.3, 7.8, 6.5],
+    daylight: [6.9, 9.3, 11.8, 14.5, 17.0, 18.6, 17.9, 15.6, 12.9, 10.3, 7.7, 6.1],
     // source: SMHI / climate-data.org/europe/sweden/stockholm-3739/
     rainfall: [39, 27, 26, 30, 30, 45, 72, 66, 55, 50, 53, 46],
     temperature: [-2, -2, 1, 6, 11, 16, 18, 17, 13, 7, 3, 0],
@@ -236,7 +236,7 @@ export const CITIES: City[] = [
     // lat 53.3°N
     // source: Wikipedia / Met Éireann (Dublin Airport, 1991–2020)
     sunlight: [1.9, 2.9, 3.9, 5.5, 6.4, 6.0, 5.1, 5.0, 4.3, 3.4, 2.5, 1.8],
-    daylight: [8.1, 9.7, 11.8, 13.9, 15.8, 16.8, 16.4, 14.8, 12.6, 10.4, 8.4, 7.6],
+    daylight: [8.1, 9.9, 11.8, 14.0, 15.9, 17.0, 16.5, 14.8, 12.7, 10.6, 8.6, 7.5],
     // source: Met Éireann / climate-data.org/europe/ireland/dublin-78/
     rainfall: [67, 51, 55, 48, 56, 57, 50, 72, 65, 70, 67, 74],
     temperature: [5, 5, 6, 8, 11, 14, 16, 16, 14, 11, 7, 5],
@@ -252,7 +252,7 @@ export const CITIES: City[] = [
     // lat 47.4°N
     // source: Wikipedia / MeteoSwiss
     sunlight: [1.9, 3.2, 4.6, 5.9, 6.2, 6.9, 7.4, 7.0, 5.5, 3.5, 2.0, 1.5],
-    daylight: [9.0, 10.5, 12.3, 14.1, 15.7, 16.6, 16.1, 14.7, 12.7, 10.8, 9.2, 8.5],
+    daylight: [8.9, 10.3, 11.9, 13.6, 15.1, 15.9, 15.6, 14.3, 12.6, 10.9, 9.3, 8.5],
     // source: MeteoSwiss / climate-data.org/europe/switzerland/zurich/zurich-5759/
     rainfall: [74, 65, 76, 76, 101, 129, 136, 124, 102, 79, 76, 72],
     temperature: [1, 2, 6, 10, 14, 17, 19, 19, 15, 10, 5, 2],
@@ -268,7 +268,7 @@ export const CITIES: City[] = [
     // lat 48.1°N
     // source: Wikipedia / DWD
     sunlight: [2.4, 3.4, 4.7, 6.2, 6.9, 7.5, 7.8, 7.5, 5.7, 4.0, 2.5, 2.1],
-    daylight: [8.9, 10.4, 12.2, 14.1, 15.8, 16.7, 16.2, 14.7, 12.7, 10.7, 9.0, 8.3],
+    daylight: [8.8, 10.3, 11.9, 13.7, 15.2, 16.0, 15.7, 14.3, 12.6, 10.9, 9.3, 8.4],
     // source: DWD / climate-data.org/europe/germany/bavaria/munich-5765/
     rainfall: [59, 49, 57, 62, 85, 131, 126, 114, 84, 67, 64, 62],
     temperature: [0, 1, 5, 9, 14, 17, 19, 18, 14, 9, 4, 1],
@@ -284,7 +284,7 @@ export const CITIES: City[] = [
     // lat 41.4°N
     // source: Wikipedia / AEMET (Can Bruixa, 1987–2010)
     sunlight: [4.8, 5.8, 6.5, 7.3, 7.9, 8.7, 10.0, 9.1, 7.3, 5.8, 4.9, 4.5],
-    daylight: [9.8, 11.0, 12.5, 14.2, 15.6, 16.4, 16.0, 14.7, 13.0, 11.3, 9.9, 9.3],
+    daylight: [9.5, 10.6, 11.9, 13.3, 14.5, 15.2, 14.9, 13.8, 12.5, 11.1, 9.9, 9.2],
     // source: AEMET / climate-data.org/europe/spain/catalonia/barcelona-178/
     rainfall: [46, 42, 49, 50, 57, 37, 22, 53, 75, 96, 59, 50],
     temperature: [10, 10, 13, 15, 18, 22, 24, 25, 22, 18, 14, 11],
@@ -300,7 +300,7 @@ export const CITIES: City[] = [
     // lat 60.2°N
     // source: Wikipedia / FMI (Kumpula, 1991–2020)
     sunlight: [1.1, 2.5, 4.7, 6.8, 9.5, 9.3, 9.9, 8.0, 5.3, 2.9, 1.1, 0.7],
-    daylight: [6.6, 8.8, 11.5, 14.4, 17.0, 18.6, 18.1, 15.9, 13.1, 10.2, 7.6, 6.1],
+    daylight: [6.7, 9.2, 11.8, 14.6, 17.2, 18.9, 18.1, 15.7, 12.9, 10.2, 7.5, 5.9],
     // source: FMI / climate-data.org/europe/finland/helsinki-3060/
     rainfall: [49, 35, 33, 35, 38, 51, 68, 75, 58, 65, 67, 57],
     temperature: [-4, -5, -1, 4, 11, 15, 18, 16, 11, 6, 1, -2],
@@ -316,7 +316,7 @@ export const CITIES: City[] = [
     // lat 55.7°N
     // source: Wikipedia / DMI
     sunlight: [1.7, 2.4, 3.9, 6.0, 7.4, 7.1, 7.4, 6.4, 4.7, 3.3, 1.8, 1.3],
-    daylight: [7.5, 9.3, 11.6, 14.1, 16.2, 17.4, 16.9, 15.2, 12.8, 10.4, 8.1, 7.2],
+    daylight: [7.7, 9.7, 11.8, 14.2, 16.3, 17.5, 17.0, 15.1, 12.8, 10.5, 8.3, 7.1],
     // source: DMI / climate-data.org/europe/denmark/copenhagen-6640/
     rainfall: [46, 34, 37, 34, 39, 49, 61, 66, 60, 61, 55, 55],
     temperature: [1, 1, 3, 7, 12, 15, 17, 17, 13, 9, 5, 2],
@@ -332,7 +332,7 @@ export const CITIES: City[] = [
     // lat 59.9°N
     // source: Wikipedia / MET Norway
     sunlight: [1.5, 2.8, 4.6, 6.1, 8.1, 8.0, 7.8, 6.7, 5.1, 3.0, 1.7, 1.1],
-    daylight: [7.0, 9.1, 11.7, 14.5, 17.0, 18.5, 18.0, 15.8, 13.1, 10.3, 7.8, 6.5],
+    daylight: [6.8, 9.2, 11.8, 14.6, 17.1, 18.8, 18.0, 15.6, 12.9, 10.2, 7.6, 6.0],
     // source: MET Norway / climate-data.org/europe/norway/oslo-5763/
     rainfall: [49, 35, 42, 42, 53, 65, 81, 89, 90, 84, 73, 55],
     temperature: [-3, -4, 0, 5, 11, 15, 17, 16, 11, 6, 1, -1],
@@ -348,7 +348,7 @@ export const CITIES: City[] = [
     // lat 45.5°N (~same as Montreal; daylight reused from Montreal)
     // source: Wikipedia / Linate Airport (sunshine 1981–2010, temperature/rainfall 1991–2020)
     sunlight: [2.9, 3.9, 5.5, 5.9, 6.8, 8.3, 9.5, 7.7, 6.0, 3.8, 2.4, 2.2],
-    daylight: [9.3, 10.6, 12.2, 14.1, 15.6, 16.3, 15.9, 14.6, 12.8, 11.1, 9.5, 8.9],
+    daylight: [9.1, 10.4, 11.9, 13.5, 14.9, 15.7, 15.3, 14.1, 12.6, 11.0, 9.5, 8.7],
     // source: Wikipedia / Linate Airport, climate-data.org/europe/italy/lombardy/milan-460/
     rainfall: [36, 38, 42, 58, 70, 67, 44, 82, 73, 82, 112, 46],
     temperature: [3, 5, 10, 14, 19, 23, 25, 24, 20, 14, 9, 4],
@@ -367,7 +367,7 @@ export const CITIES: City[] = [
     // lat 52.2°N
     // source: Wikipedia / IMGW
     sunlight: [1.4, 2.4, 4.5, 7.0, 8.8, 9.6, 9.5, 9.0, 6.4, 4.0, 1.7, 1.1],
-    daylight: [8.3, 9.9, 11.9, 14.1, 16.0, 17.1, 16.6, 14.9, 12.7, 10.5, 8.6, 7.8],
+    daylight: [8.2, 10.0, 11.8, 13.9, 15.7, 16.7, 16.3, 14.7, 12.7, 10.7, 8.8, 7.7],
     // source: IMGW / climate-data.org/europe/poland/warsaw-4994/
     rainfall: [27, 23, 27, 32, 51, 61, 65, 63, 46, 40, 32, 31],
     temperature: [-2, -1, 3, 9, 15, 17, 19, 19, 14, 9, 4, 0],
@@ -383,7 +383,7 @@ export const CITIES: City[] = [
     // lat 59.4°N
     // source: Wikipedia / EMHI
     sunlight: [1.0, 2.1, 4.8, 7.2, 9.9, 9.8, 10.1, 8.2, 5.4, 2.8, 1.0, 0.7],
-    daylight: [7.0, 9.1, 11.7, 14.5, 17.1, 18.5, 18.0, 15.8, 13.1, 10.3, 7.8, 6.5],
+    daylight: [6.9, 9.3, 11.8, 14.5, 17.0, 18.6, 17.9, 15.6, 12.9, 10.2, 7.7, 6.1],
     // source: EMHI / climate-data.org/europe/estonia/tallinn-5776/
     rainfall: [44, 33, 30, 32, 38, 52, 75, 81, 64, 67, 61, 57],
     temperature: [-3, -4, -1, 4, 10, 14, 17, 16, 11, 6, 2, -2],
@@ -399,7 +399,7 @@ export const CITIES: City[] = [
     // lat 54.7°N
     // source: Wikipedia / LHMT
     sunlight: [1.1, 2.0, 4.3, 6.5, 8.4, 8.8, 8.5, 7.9, 5.6, 3.1, 1.0, 0.8],
-    daylight: [7.7, 9.4, 11.7, 14.2, 16.3, 17.5, 17.0, 15.3, 12.9, 10.4, 8.0, 7.1],
+    daylight: [7.8, 9.8, 11.8, 14.1, 16.1, 17.3, 16.7, 15.0, 12.7, 10.5, 8.5, 7.3],
     // source: LHMT / climate-data.org/europe/lithuania/vilnius-5757/
     rainfall: [36, 30, 35, 40, 56, 68, 74, 71, 52, 47, 44, 44],
     temperature: [-4, -3, 1, 7, 13, 16, 18, 17, 12, 7, 2, -2],
@@ -415,7 +415,7 @@ export const CITIES: City[] = [
     // lat 50.5°N
     // source: Wikipedia / UMC
     sunlight: [1.4, 2.3, 3.6, 5.4, 8.3, 9.1, 9.3, 8.1, 6.3, 4.0, 1.7, 1.0],
-    daylight: [8.7, 10.2, 12.1, 14.1, 15.9, 17.0, 16.5, 14.9, 12.7, 10.6, 8.8, 8.1],
+    daylight: [8.5, 10.1, 11.8, 13.8, 15.5, 16.4, 16.0, 14.5, 12.6, 10.8, 9.0, 8.0],
     // source: UMC / climate-data.org/europe/ukraine/kyiv-5766/
     rainfall: [36, 36, 36, 43, 55, 76, 80, 64, 49, 38, 43, 42],
     temperature: [-3, -2, 2, 10, 16, 19, 21, 20, 15, 9, 3, -1],
@@ -431,7 +431,7 @@ export const CITIES: City[] = [
     // lat 44.4°N
     // source: Wikipedia / ANM
     sunlight: [2.5, 3.8, 5.1, 6.5, 7.9, 8.6, 9.5, 9.1, 7.0, 4.8, 2.8, 2.1],
-    daylight: [9.4, 10.8, 12.4, 14.1, 15.6, 16.4, 16.0, 14.7, 12.9, 11.1, 9.5, 8.9],
+    daylight: [9.2, 10.5, 11.9, 13.5, 14.8, 15.5, 15.2, 14.0, 12.5, 11.0, 9.6, 8.9],
     // source: ANM / climate-data.org/europe/romania/bucharest-5767/
     rainfall: [40, 38, 36, 46, 60, 73, 58, 51, 36, 36, 46, 44],
     temperature: [-1, 1, 6, 12, 17, 21, 23, 23, 18, 12, 5, 1],
@@ -447,7 +447,7 @@ export const CITIES: City[] = [
     // lat 50.1°N
     // source: Wikipedia / CHMI (Clementinum)
     sunlight: [1.7, 2.9, 4.2, 6.3, 7.0, 7.3, 7.4, 7.2, 5.6, 3.6, 1.8, 1.5],
-    daylight: [8.7, 10.2, 12.1, 14.1, 15.9, 17.0, 16.5, 14.9, 12.7, 10.6, 8.8, 8.1],
+    daylight: [8.6, 10.1, 11.9, 13.8, 15.4, 16.4, 16.0, 14.5, 12.6, 10.8, 9.0, 8.1],
     // source: CHMI / climate-data.org/europe/czech-republic/prague-5771/
     rainfall: [22, 21, 27, 34, 59, 67, 67, 67, 40, 32, 30, 24],
     temperature: [-1, 0, 4, 9, 14, 17, 19, 19, 14, 9, 4, 0],
@@ -463,7 +463,7 @@ export const CITIES: City[] = [
     // lat 50.1°N
     // source: Wikipedia / IMGW (Kraków Airport, 1971–2000)
     sunlight: [1.4, 2.3, 3.2, 4.6, 6.5, 6.5, 6.8, 6.5, 4.2, 3.2, 1.6, 1.0],
-    daylight: [8.7, 10.2, 12.1, 14.1, 15.9, 17.0, 16.5, 14.9, 12.7, 10.6, 8.8, 8.1],
+    daylight: [8.6, 10.1, 11.9, 13.8, 15.4, 16.4, 15.9, 14.5, 12.6, 10.8, 9.0, 8.1],
     // source: IMGW / climate-data.org/europe/poland/krakow-5759/
     rainfall: [30, 28, 33, 45, 72, 90, 90, 80, 53, 40, 40, 35],
     temperature: [-2, -1, 3, 9, 14, 17, 19, 19, 14, 9, 4, 0],
@@ -482,7 +482,7 @@ export const CITIES: City[] = [
     // lat 37.8°N
     // source: Wikipedia / NOAA (Downtown SF)
     sunlight: [6.0, 7.4, 8.7, 10.3, 10.5, 10.4, 10.1, 9.3, 9.0, 8.0, 5.8, 5.2],
-    daylight: [10.1, 11.3, 12.7, 14.2, 15.4, 16.1, 15.7, 14.5, 12.9, 11.4, 10.2, 9.7],
+    daylight: [9.8, 10.8, 11.9, 13.2, 14.2, 14.8, 14.5, 13.6, 12.4, 11.2, 10.1, 9.6],
     // source: NOAA / climate-data.org/north-america/united-states/california/san-francisco-368/
     rainfall: [119, 97, 79, 38, 18, 3, 0, 1, 6, 25, 76, 112],
     temperature: [11, 12, 13, 14, 15, 17, 17, 17, 18, 17, 14, 11],
@@ -498,7 +498,7 @@ export const CITIES: City[] = [
     // lat 40.7°N
     // source: Wikipedia / NOAA (Central Park)
     sunlight: [5.2, 5.8, 6.9, 7.5, 8.3, 8.6, 8.7, 8.7, 7.3, 6.8, 5.0, 4.5],
-    daylight: [9.8, 11.0, 12.5, 14.2, 15.5, 16.3, 15.9, 14.6, 12.9, 11.2, 9.8, 9.2],
+    daylight: [9.6, 10.7, 11.9, 13.3, 14.5, 15.1, 14.8, 13.8, 12.5, 11.1, 9.9, 9.3],
     // source: NOAA / climate-data.org/north-america/united-states/new-york/new-york-542/
     rainfall: [94, 79, 103, 101, 106, 104, 107, 103, 99, 99, 86, 91],
     temperature: [1, 2, 6, 12, 17, 22, 25, 24, 20, 14, 9, 3],
@@ -514,7 +514,7 @@ export const CITIES: City[] = [
     // lat 47.6°N
     // source: Wikipedia / NOAA (1961–1990)
     sunlight: [2.3, 3.9, 5.8, 6.9, 8.2, 8.9, 10.1, 9.1, 7.4, 4.6, 2.4, 1.7],
-    daylight: [9.0, 10.5, 12.3, 14.1, 15.8, 16.7, 16.2, 14.7, 12.7, 10.7, 9.0, 8.3],
+    daylight: [8.9, 10.3, 11.9, 13.6, 15.1, 16.0, 15.6, 14.3, 12.6, 10.9, 9.3, 8.5],
     // source: NOAA / climate-data.org/north-america/united-states/washington/seattle-714/
     rainfall: [135, 97, 89, 69, 55, 40, 18, 26, 46, 86, 148, 144],
     temperature: [5, 6, 8, 11, 14, 17, 19, 19, 17, 12, 8, 5],
@@ -530,7 +530,7 @@ export const CITIES: City[] = [
     // lat 30.3°N
     // source: Wikipedia / NOAA (Camp Mabry)
     sunlight: [5.3, 6.0, 6.6, 6.9, 7.3, 9.5, 10.2, 9.6, 7.8, 7.0, 5.6, 5.0],
-    daylight: [10.4, 11.5, 12.8, 14.2, 15.3, 16.0, 15.6, 14.4, 12.8, 11.3, 10.3, 9.8],
+    daylight: [10.4, 11.1, 12.0, 12.9, 13.7, 14.1, 13.9, 13.2, 12.4, 11.5, 10.6, 10.2],
     // source: NOAA / climate-data.org/north-america/united-states/texas/austin-750/
     rainfall: [48, 60, 53, 61, 96, 94, 49, 47, 77, 83, 63, 52],
     temperature: [11, 13, 17, 21, 25, 28, 30, 30, 27, 22, 17, 12],
@@ -546,7 +546,7 @@ export const CITIES: City[] = [
     // lat 42.4°N
     // source: Wikipedia / NOAA
     sunlight: [5.3, 6.0, 6.9, 7.6, 8.6, 9.6, 9.7, 8.9, 7.9, 6.7, 4.8, 4.6],
-    daylight: [9.6, 10.8, 12.4, 14.1, 15.5, 16.2, 15.8, 14.5, 12.8, 11.1, 9.7, 9.1],
+    daylight: [9.4, 10.6, 11.9, 13.4, 14.6, 15.3, 15.0, 13.9, 12.5, 11.1, 9.8, 9.1],
     // source: NOAA / climate-data.org/north-america/united-states/massachusetts/boston-499/
     rainfall: [97, 86, 105, 99, 94, 99, 84, 91, 91, 101, 114, 107],
     temperature: [-1, 0, 4, 10, 15, 21, 24, 23, 19, 13, 8, 2],
@@ -562,7 +562,7 @@ export const CITIES: City[] = [
     // lat 34.1°N
     // source: Wikipedia / NOAA (Downtown LA / Dodger Stadium)
     sunlight: [7.3, 7.9, 8.6, 10.1, 8.9, 9.2, 11.7, 11.3, 9.3, 8.2, 7.2, 7.1],
-    daylight: [10.2, 11.3, 12.7, 14.2, 15.4, 16.1, 15.7, 14.5, 12.9, 11.3, 10.2, 9.7],
+    daylight: [10.1, 11.0, 12.0, 13.0, 13.9, 14.4, 14.2, 13.4, 12.4, 11.4, 10.4, 9.9],
     // source: NOAA / climate-data.org/north-america/united-states/california/los-angeles-370/
     rainfall: [84, 92, 62, 25, 7, 3, 0, 1, 5, 18, 37, 58],
     temperature: [14, 15, 16, 17, 18, 20, 22, 23, 22, 20, 17, 14],
@@ -578,7 +578,7 @@ export const CITIES: City[] = [
     // lat 41.9°N
     // source: Wikipedia / NOAA (O'Hare)
     sunlight: [4.4, 4.9, 6.0, 7.2, 9.1, 10.4, 10.3, 9.1, 7.6, 6.2, 3.8, 3.4],
-    daylight: [9.7, 10.9, 12.4, 14.2, 15.6, 16.3, 15.9, 14.6, 12.9, 11.2, 9.7, 9.1],
+    daylight: [9.5, 10.6, 11.9, 13.4, 14.6, 15.2, 14.9, 13.9, 12.5, 11.1, 9.8, 9.1],
     // source: NOAA / climate-data.org/north-america/united-states/illinois/chicago-502/
     rainfall: [52, 45, 68, 82, 92, 100, 99, 102, 77, 74, 72, 58],
     temperature: [-3, -2, 4, 10, 16, 22, 25, 24, 20, 13, 6, -1],
@@ -594,7 +594,7 @@ export const CITIES: City[] = [
     // lat 39.7°N
     // source: Wikipedia / NOAA
     sunlight: [6.9, 7.5, 8.2, 9.2, 9.4, 10.5, 10.5, 9.9, 9.1, 8.0, 6.5, 6.3],
-    daylight: [9.8, 11.0, 12.5, 14.2, 15.5, 16.3, 15.8, 14.6, 12.9, 11.2, 9.8, 9.3],
+    daylight: [9.7, 10.7, 11.9, 13.3, 14.4, 15.0, 14.7, 13.7, 12.5, 11.2, 10.0, 9.4],
     // source: NOAA / climate-data.org/north-america/united-states/colorado/denver-488/
     rainfall: [14, 18, 30, 42, 58, 45, 53, 47, 31, 25, 18, 14],
     temperature: [0, 1, 5, 10, 15, 21, 23, 22, 17, 11, 4, 0],
@@ -610,7 +610,7 @@ export const CITIES: City[] = [
     // lat 33.7°N
     // source: Wikipedia / NOAA (1991–2020)
     sunlight: [5.3, 6.1, 7.1, 8.7, 9.3, 9.5, 8.8, 8.3, 7.6, 7.7, 6.2, 5.3],
-    daylight: [10.3, 11.4, 12.8, 14.2, 15.4, 16.1, 15.7, 14.4, 12.8, 11.3, 10.2, 9.8],
+    daylight: [10.2, 11.0, 12.0, 13.0, 13.9, 14.4, 14.2, 13.4, 12.4, 11.4, 10.4, 9.9],
     // source: NOAA / climate-data.org/north-america/united-states/georgia/atlanta-478/
     rainfall: [112, 112, 137, 91, 89, 107, 123, 103, 90, 74, 97, 101],
     temperature: [7, 9, 13, 17, 21, 25, 27, 26, 23, 18, 13, 8],
@@ -626,7 +626,7 @@ export const CITIES: City[] = [
     // lat 35.8°N
     // source: Wikipedia / NOAA
     sunlight: [5.3, 6.2, 7.4, 8.4, 8.3, 8.9, 8.4, 7.7, 7.3, 7.0, 5.8, 5.1],
-    daylight: [10.1, 11.2, 12.7, 14.2, 15.5, 16.2, 15.7, 14.5, 12.8, 11.3, 10.1, 9.6],
+    daylight: [10.0, 10.9, 11.9, 13.1, 14.1, 14.6, 14.3, 13.5, 12.4, 11.3, 10.3, 9.7],
     // source: NOAA / climate-data.org/north-america/united-states/north-carolina/raleigh-575/
     rainfall: [92, 83, 101, 74, 86, 102, 105, 102, 107, 80, 77, 79],
     temperature: [5, 7, 11, 16, 20, 25, 27, 26, 22, 17, 11, 6],
@@ -642,7 +642,7 @@ export const CITIES: City[] = [
     // lat 25.8°N
     // source: Wikipedia / NOAA (1991–2020)
     sunlight: [7.1, 7.7, 8.9, 9.8, 9.7, 9.6, 10.0, 9.3, 8.7, 8.4, 7.4, 7.0],
-    daylight: [10.9, 11.8, 12.8, 14.0, 14.9, 15.5, 15.2, 14.2, 12.8, 11.5, 10.7, 10.4],
+    daylight: [10.7, 11.3, 12.0, 12.8, 13.4, 13.7, 13.6, 13.0, 12.3, 11.6, 10.9, 10.5],
     // source: NOAA / climate-data.org/north-america/united-states/florida/miami-352/
     rainfall: [51, 58, 62, 75, 152, 234, 168, 208, 213, 187, 71, 45],
     temperature: [20, 21, 23, 25, 27, 28, 29, 29, 28, 26, 23, 21],
@@ -658,7 +658,7 @@ export const CITIES: City[] = [
     // lat 38.9°N
     // source: Wikipedia / NOAA (Reagan National)
     sunlight: [4.7, 5.4, 6.6, 7.6, 8.4, 9.4, 9.0, 8.5, 7.5, 6.6, 5.0, 4.3],
-    daylight: [9.9, 11.1, 12.6, 14.2, 15.5, 16.2, 15.8, 14.5, 12.9, 11.2, 9.8, 9.3],
+    daylight: [9.7, 10.8, 11.9, 13.2, 14.3, 14.9, 14.6, 13.7, 12.5, 11.2, 10.1, 9.5],
     // source: NOAA / climate-data.org/north-america/united-states/district-of-columbia/washington-538/
     rainfall: [76, 66, 88, 75, 99, 93, 100, 87, 93, 78, 74, 80],
     temperature: [2, 4, 8, 14, 19, 24, 26, 25, 21, 15, 9, 4],
@@ -677,7 +677,7 @@ export const CITIES: City[] = [
     // lat 43.7°N
     // source: Wikipedia / ECCC (Pearson Airport)
     sunlight: [2.8, 4.0, 5.2, 6.0, 7.3, 8.7, 9.0, 7.9, 6.5, 5.0, 3.0, 2.5],
-    daylight: [9.5, 10.8, 12.3, 14.1, 15.5, 16.2, 15.8, 14.5, 12.8, 11.1, 9.6, 9.1],
+    daylight: [9.3, 10.5, 11.9, 13.4, 14.7, 15.4, 15.1, 14.0, 12.5, 11.0, 9.7, 9.0],
     // source: Environment and Climate Change Canada / climate-data.org/north-america/canada/ontario/toronto-5762/
     rainfall: [52, 47, 59, 64, 67, 72, 74, 81, 73, 62, 73, 58],
     temperature: [-4, -3, 1, 8, 14, 20, 22, 21, 17, 10, 4, -1],
@@ -693,7 +693,7 @@ export const CITIES: City[] = [
     // lat 49.2°N
     // source: Wikipedia / ECCC
     sunlight: [1.9, 3.3, 4.3, 6.2, 7.2, 7.6, 9.4, 8.9, 7.1, 3.9, 2.0, 1.8],
-    daylight: [8.9, 10.3, 12.1, 14.1, 15.8, 16.7, 16.2, 14.7, 12.7, 10.7, 9.0, 8.3],
+    daylight: [8.7, 10.2, 11.9, 13.7, 15.3, 16.2, 15.8, 14.4, 12.6, 10.8, 9.1, 8.2],
     // source: Environment Canada / climate-data.org/north-america/canada/british-columbia/vancouver-5766/
     rainfall: [154, 113, 101, 70, 61, 45, 32, 36, 54, 113, 180, 184],
     temperature: [4, 5, 7, 10, 13, 16, 18, 18, 15, 10, 6, 4],
@@ -709,7 +709,7 @@ export const CITIES: City[] = [
     // lat 45.5°N
     // source: Wikipedia / ECCC
     sunlight: [3.3, 4.6, 5.3, 5.9, 7.4, 8.0, 8.8, 7.9, 6.1, 4.6, 2.8, 2.7],
-    daylight: [9.3, 10.6, 12.2, 14.1, 15.6, 16.3, 15.9, 14.6, 12.8, 11.1, 9.5, 8.9],
+    daylight: [9.1, 10.4, 11.9, 13.5, 14.9, 15.7, 15.3, 14.1, 12.6, 11.0, 9.5, 8.7],
     // source: Environment Canada / climate-data.org/north-america/canada/quebec/montreal-5765/
     rainfall: [80, 70, 74, 78, 85, 87, 92, 94, 89, 88, 98, 90],
     temperature: [-9, -7, -1, 7, 14, 19, 22, 21, 16, 9, 2, -5],
@@ -725,7 +725,7 @@ export const CITIES: City[] = [
     // lat 43.5°N (approximately same as Toronto)
     // source: weather-and-climate.com (Hamilton station, 1990–2020); anchored to July 9.8 h/day, Dec 2.3 h/day, annual ~2,120 h
     sunlight: [2.8, 4.0, 5.3, 6.2, 7.6, 8.9, 9.8, 8.5, 6.6, 5.1, 3.1, 2.3],
-    daylight: [9.5, 10.8, 12.3, 14.1, 15.5, 16.2, 15.8, 14.5, 12.8, 11.1, 9.6, 9.1],
+    daylight: [9.3, 10.5, 11.9, 13.4, 14.7, 15.4, 15.1, 14.0, 12.5, 11.1, 9.7, 9.0],
     // source: Environment Canada / climate-data.org/north-america/canada/ontario/waterloo-5798/
     rainfall: [58, 52, 66, 73, 78, 85, 87, 91, 81, 67, 78, 62],
     temperature: [-7, -6, -1, 7, 13, 19, 21, 20, 16, 9, 3, -3],
@@ -741,7 +741,7 @@ export const CITIES: City[] = [
     // lat 45.4°N
     // source: Wikipedia / ECCC
     sunlight: [3.9, 4.1, 5.4, 6.3, 6.8, 9.1, 9.7, 7.5, 7.1, 4.8, 3.1, 2.2],
-    daylight: [9.3, 10.6, 12.2, 14.1, 15.6, 16.3, 15.9, 14.6, 12.8, 11.1, 9.5, 8.9],
+    daylight: [9.1, 10.4, 11.9, 13.5, 14.9, 15.7, 15.3, 14.1, 12.6, 11.0, 9.5, 8.7],
     // source: Environment Canada / climate-data.org/north-america/canada/ontario/ottawa-5762/
     rainfall: [64, 52, 60, 64, 73, 80, 87, 87, 82, 72, 80, 68],
     temperature: [-10, -8, -2, 6, 13, 19, 21, 20, 16, 9, 2, -6],
@@ -757,7 +757,7 @@ export const CITIES: City[] = [
     // lat 51.1°N
     // source: Wikipedia / ECCC (Calgary International Airport, 1991–2020)
     sunlight: [3.9, 5.2, 5.7, 7.3, 8.0, 9.0, 10.1, 9.2, 6.9, 5.7, 4.0, 3.7],
-    daylight: [8.6, 10.1, 11.9, 14.0, 15.8, 16.8, 16.3, 14.7, 12.6, 10.4, 8.8, 8.0],
+    daylight: [8.4, 10.1, 11.8, 13.8, 15.6, 16.5, 16.1, 14.6, 12.7, 10.7, 8.9, 7.9],
     // source: Environment Canada / en.wikipedia.org/wiki/Climate_of_Calgary
     rainfall: [10, 12, 18, 30, 61, 113, 66, 54, 37, 17, 16, 13],
     temperature: [-8, -6, -2, 4, 10, 14, 17, 16, 12, 5, -2, -6],
@@ -773,7 +773,7 @@ export const CITIES: City[] = [
     // lat 44.6°N
     // source: Wikipedia / ECCC (Halifax Stanfield Airport, 1991–2020; sunshine from Citadel Hill, 1981–2010)
     sunlight: [3.5, 4.5, 4.6, 5.2, 6.2, 7.4, 7.6, 7.3, 6.0, 5.1, 3.6, 3.4],
-    daylight: [9.4, 10.7, 12.2, 14.1, 15.6, 16.3, 15.9, 14.6, 12.8, 11.1, 9.5, 9.0],
+    daylight: [9.2, 10.5, 11.9, 13.5, 14.8, 15.5, 15.2, 14.1, 12.5, 11.0, 9.6, 8.8],
     // source: Environment Canada / weatherspark.com/y/147454
     rainfall: [126, 111, 120, 106, 110, 90, 87, 91, 107, 140, 159, 147],
     temperature: [-5, -5, -1, 4, 10, 15, 19, 19, 15, 9, 4, -2],
@@ -792,7 +792,7 @@ export const CITIES: City[] = [
     // lat 19.4°N
     // source: nomadseason.com / SMN (Observatorio, estimated; rainy season Jun–Sep reduces sunshine)
     sunlight: [6.5, 7.5, 8.1, 9.0, 9.2, 7.7, 7.4, 7.1, 5.7, 6.8, 7.2, 6.1],
-    daylight: [11.2, 11.9, 12.7, 13.5, 14.1, 14.4, 14.2, 13.6, 12.7, 11.8, 11.1, 10.9],
+    daylight: [11.1, 11.5, 12.0, 12.6, 13.1, 13.3, 13.2, 12.8, 12.3, 11.7, 11.2, 11.0],
     // source: SMN / climate-data.org/north-america/mexico/ciudad-de-mexico/mexico-city-9/
     rainfall: [13, 8, 11, 29, 53, 130, 164, 162, 129, 72, 19, 9],
     temperature: [14, 16, 18, 20, 20, 19, 18, 18, 18, 17, 15, 14],
@@ -808,7 +808,7 @@ export const CITIES: City[] = [
     // lat 20.7°N
     // source: Wikipedia / SMN
     sunlight: [6.6, 8.1, 8.5, 8.7, 9.0, 7.1, 6.3, 6.8, 6.2, 7.1, 7.5, 6.1],
-    daylight: [11.1, 11.8, 12.6, 13.5, 14.1, 14.4, 14.2, 13.6, 12.7, 11.7, 11.0, 10.8],
+    daylight: [11.0, 11.5, 12.0, 12.6, 13.1, 13.4, 13.3, 12.8, 12.3, 11.7, 11.2, 10.9],
     // source: SMN / climate-data.org/north-america/mexico/jalisco/guadalajara-88/
     rainfall: [19, 7, 6, 5, 14, 196, 252, 201, 134, 47, 9, 12],
     temperature: [16, 17, 19, 22, 24, 24, 22, 22, 22, 20, 18, 16],
@@ -824,7 +824,7 @@ export const CITIES: City[] = [
     // lat 25.7°N
     // source: Wikipedia / SMN
     sunlight: [5.2, 5.8, 5.8, 6.3, 6.7, 7.4, 7.7, 8.3, 6.1, 5.8, 5.2, 4.5],
-    daylight: [10.9, 11.8, 12.8, 14.0, 14.9, 15.5, 15.2, 14.2, 12.8, 11.5, 10.7, 10.4],
+    daylight: [10.7, 11.3, 12.0, 12.8, 13.4, 13.7, 13.6, 13.0, 12.3, 11.6, 10.9, 10.5],
     // source: SMN / climate-data.org/north-america/mexico/nuevo-leon/monterrey-97/
     rainfall: [23, 19, 23, 36, 41, 74, 48, 73, 139, 72, 25, 19],
     temperature: [15, 17, 21, 24, 27, 28, 28, 28, 26, 23, 19, 16],
